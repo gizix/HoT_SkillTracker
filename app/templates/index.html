@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trait Comparer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</head>
+<body>
+    <div class="container">
+        <button onclick="showSaveMenu()">Save Build</button>
+        <button onclick="loadState()">Load Build</button>
+        <div id="selectionContainer">
+            <select id="classDropdown1"></select>
+            <select id="classDropdown2"></select>
+            <button onclick="compareTraits()">Compare</button>
+        </div>
+        <div id="panelsContainer">
+            <div id="traitsPanel1">
+                <div class="category-container" data-category="Weapon Proficiency">
+                    <!-- Weapon Proficiency traits for class 1 go here -->
+                </div>
+                <div class="category-container" data-category="Proficient Stance">
+                    <!-- Proficient Stance traits for class 1 go here -->
+                </div>
+                <div class="category-container" data-category="Dedication">
+                    <!-- Dedication traits for class 1 go here -->
+                </div>
+            </div>
+
+            <div id="traitsPanel2">
+                <div class="category-container" data-category="Weapon Proficiency">
+                    <!-- Weapon Proficiency traits for class 2 go here -->
+                </div>
+                <div class="category-container" data-category="Proficient Stance">
+                    <!-- Proficient Stance traits for class 2 go here -->
+                </div>
+                <div class="category-container" data-category="Dedication">
+                    <!-- Dedication traits for class 2 go here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="summaryModal" class="summary-modal">
+        <div class="summary-modal-content">
+            <h4>Traits Summary</h4>
+            <p id="summaryText"></p>
+        </div>
+    </div>
+    <div id="loadStateModal" class="modal">
+        <div class="modal-content">
+            <span id="loadModalCloseBtn" class="close-btn">&times;</span>
+            <h4>Load Build</h4>
+            <ul id="stateList"></ul>
+        </div>
+    </div>
+    <div id="saveStateModal" class="modal">
+        <div class="modal-content">
+            <span id="saveModalCloseBtn" class="close-btn">&times;</span>
+            <h4>Save Build</h4>
+            <ul id="saveStateList"></ul>
+            <button onclick="saveState()">New Build</button>
+        </div>
+    </div>
+</body>
+</html>

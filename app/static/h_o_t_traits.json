@@ -1,0 +1,1891 @@
+{
+    "description": "Traits are a key gameplay mechanic in Halls of Torment, providing players with powerful bonuses that can greatly enhance their chances of success by leveling up.",
+    "base_traits": {
+        "description": "Base Traits are available from the very start.",
+        "traits": [
+            {
+                "name": "Trait",
+                "max_rank": "Max Rank",
+                "levels": "Level(s)",
+                "effect": "ExpandEffect"
+            }
+        ]
+    },
+    "fallback_traits": {
+        "description": "These traits appear when the trait pool is fully depleted.",
+        "traits": [
+            {
+                "name": "Trait",
+                "effect": "ExpandEffect"
+            }
+        ]
+    },
+    "elevated_traits": {
+        "description": "Elevated Traits have to be unlocked through Quests.",
+        "traits": [
+            {
+                "name": "Trait",
+                "max_rank": "Max Rank",
+                "levels": "Level(s)",
+                "effect": "ExpandEffect"
+            }
+        ]
+    },
+    "ability_traits": {
+        "description": "Ability Traits improve the effectiveness of abilities, possibly at a compromise.",
+        "abilities": [
+            {
+                "name": "Phantom Needles",
+                "type": "Physical, Projectile",
+                "I": {
+                    "Firerate": {
+                        "Attack Speed (Ability)": "+15%"
+                    },
+                    "Sharpness": {
+                        "Damage (Ability)": "+20%"
+                    },
+                    "Spin": {
+                        "Base Crit Bonus (Ability)": "+0.1"
+                    },
+                    "Puncture": {
+                        "Force (Ability)": "+25%",
+                        "Range (Ability)": "+25%"
+                    },
+                    "Pinpoint": {
+                        "Crit Chance (Ability)": "+50%"
+                    },
+                    "Power": {
+                        "Damage (Ability)": "+8"
+                    }
+                },
+                "II": {
+                    "Firerate": {
+                        "Attack Speed (Ability)": "+15%"
+                    },
+                    "Sharpness": {
+                        "Damage (Ability)": "+20%"
+                    },
+                    "Puncture": {
+                        "Force (Ability)": "+25%",
+                        "Range (Ability)": "+25%"
+                    },
+                    "Spin": {
+                        "Base Crit Bonus (Ability)": "+0.1"
+                    }
+                },
+                "III": {
+                    "Spin": {
+                        "Base Crit Bonus (Ability)": "+0.1"
+                    },
+                    "Power": {
+                        "Damage (Ability)": "+8"
+                    },
+                    "Pinpoint": {
+                        "Crit Chance (Ability)": "+50%"
+                    }
+                },
+                "IV": {
+                    "Firerate": {
+                        "Attack Speed (Ability)": "+15%"
+                    },
+                    "Puncture": {
+                        "Force (Ability)": "+25%",
+                        "Range (Ability)": "+25%"
+                    }
+                },
+                "V": {
+                    "Firerate": {
+                        "Attack Speed (Ability)": "+15%"
+                    },
+                    "Sharpness": {
+                        "Damage (Ability)": "+20%"
+                    }
+                },
+                "VI": {
+                    "Spin": {
+                        "Base Crit Bonus (Ability)": "+0.1"
+                    },
+                    "Puncture": {
+                        "Force (Ability)": "+25%",
+                        "Range (Ability)": "+25%"
+                    }
+                },
+                "VII": {
+                    "Firerate": {
+                        "Attack Speed (Ability)": "+15%"
+                    },
+                    "Sharpness": {
+                        "Damage (Ability)": "+20%"
+                    }
+                },
+                "VIII": {
+                    "Puncture": {
+                        "Force (Ability)": "+25%",
+                        "Range (Ability)": "+25%"
+                    },
+                    "Power": {
+                        "Damage (Ability)": "+8"
+                    }
+                },
+                "IX": {
+                    "Pinpoint": {
+                        "Crit Chance (Ability)": "+50%"
+                    }
+                },
+                "X": {
+                    "Firerate": {
+                        "Attack Speed (Ability)": "+15%"
+                    }
+                }
+            },
+            {
+                "name": "Arcane Splinters",
+                "type": "Magic, Projectile",
+                "I": {
+                    "Charging": {
+                        "Attack Speed (Ability)": "+20%",
+                        "Projectile Size (Ability)": "-10%"
+                    },
+                    "Focus": {
+                        "Range (Ability)": "+30%",
+                        "Area (Ability)": "-10%"
+                    }
+                },
+                "II": {
+                    "Charging": {
+                        "Attack Speed (Ability)": "+20%",
+                        "Projectile Size (Ability)": "-10%"
+                    },
+                    "Power": {
+                        "Damage (Ability)": "+30%",
+                        "Force (Ability)": "-10%"
+                    },
+                    "Piercing": {
+                        "Base Crit Chance (Ability)": "+0.05",
+                        "Crit Bonus (Ability)": "+30%"
+                    }
+                },
+                "III": {
+                    "Focus": {
+                        "Range (Ability)": "+30%",
+                        "Area (Ability)": "-10%"
+                    },
+                    "Fading": {
+                        "Base Force (Ability)": "+1.5",
+                        "Projectile Size (Ability)": "+10%",
+                        "Range (Ability)": "-10%"
+                    },
+                    "Split": {
+                        "Base Multistrike (Ability)": "+1",
+                        "Area (Ability)": "+10%"
+                    }
+                },
+                "IV": {
+                    "Charging": {
+                        "Attack Speed (Ability)": "+20%",
+                        "Projectile Size (Ability)": "-10%"
+                    },
+                    "Piercing": {
+                        "Base Crit Chance (Ability)": "+0.05",
+                        "Crit Bonus (Ability)": "+30%"
+                    }
+                },
+                "V": {
+                    "Charging": {
+                        "Attack Speed (Ability)": "+20%",
+                        "Projectile Size (Ability)": "-10%"
+                    },
+                    "Power": {
+                        "Damage (Ability)": "+30%",
+                        "Force (Ability)": "-10%"
+                    }
+                },
+                "VI": {
+                    "Fading": {
+                        "Base Force (Ability)": "+1.5",
+                        "Projectile Size (Ability)": "+10%",
+                        "Range (Ability)": "-10%"
+                    },
+                    "Piercing": {
+                        "Base Crit Chance (Ability)": "+0.05",
+                        "Crit Bonus (Ability)": "+30%"
+                    }
+                },
+                "VII": {
+                    "Charging": {
+                        "Attack Speed (Ability)": "+20%",
+                        "Projectile Size (Ability)": "-10%"
+                    },
+                    "Power": {
+                        "Damage (Ability)": "+30%",
+                        "Force (Ability)": "-10%"
+                    }
+                },
+                "VIII": {
+                    "Piercing": {
+                        "Base Crit Chance (Ability)": "+0.05",
+                        "Crit Bonus (Ability)": "+30%"
+                    }
+                },
+                "IX": {
+                    "Power": {
+                        "Damage (Ability)": "+30%",
+                        "Force (Ability)": "-10%"
+                    }
+                },
+                "X": {
+                    "Charging": {
+                        "Attack Speed (Ability)": "+20%",
+                        "Projectile Size (Ability)": "-10%"
+                    }
+                }
+            },
+            {
+                "name": "Astronomer's Orbs",
+                "type": "Physical, Summon, Projectile",
+                "mastery_levels": {
+                    "I": {
+                        "Speed": {
+                            "Movement Speed (Ability)": "+10%",
+                            "Range (Ability)": "+5%",
+                            "Damage (Ability)": "+15%"
+                        },
+                        "Mass": {
+                            "Damage (Ability)": "+20%",
+                            "Area (Ability)": "+5%",
+                            "Range (Ability)": "-15%"
+                        }
+                    },
+                    "II": {
+                        "Speed": {
+                            "Movement Speed (Ability)": "+10%",
+                            "Range (Ability)": "+5%",
+                            "Damage (Ability)": "+15%"
+                        },
+                        "Roughness": {
+                            "Base Crit Chance (Ability)": "+0.15",
+                            "Crit Bonus (Ability)": "+5%"
+                        },
+                        "Density": {
+                            "Damage (Ability)": "+15%",
+                            "Base Crit Bonus (Ability)": "+0.05",
+                            "Area (Ability)": "-10%"
+                        }
+                    },
+                    "III": {
+                        "Mass": {
+                            "Damage (Ability)": "+20%",
+                            "Area (Ability)": "+5%",
+                            "Range (Ability)": "-15%"
+                        },
+                        "Bodies": {
+                            "Orb (Ability)": "+1",
+                            "Area (Ability)": "-10%",
+                            "Damage (Ability)": "-25%"
+                        },
+                        "Material": {
+                            "Base Damage (Ability)": "+7"
+                        }
+                    },
+                    "IV": {
+                        "Speed": {
+                            "Movement Speed (Ability)": "+10%",
+                            "Range (Ability)": "+5%",
+                            "Damage (Ability)": "+15%"
+                        },
+                        "Density": {
+                            "Damage (Ability)": "+15%",
+                            "Base Crit Bonus (Ability)": "+0.05",
+                            "Area (Ability)": "-10%"
+                        }
+                    },
+                    "V": {
+                        "Speed": {
+                            "Movement Speed (Ability)": "+10%",
+                            "Range (Ability)": "+5%",
+                            "Damage (Ability)": "+15%"
+                        },
+                        "Roughness": {
+                            "Base Crit Chance (Ability)": "+0.15",
+                            "Crit Bonus (Ability)": "+5%"
+                        }
+                    },
+                    "VI": {
+                        "Bodies": {
+                            "Orb (Ability)": "+1",
+                            "Area (Ability)": "-10%",
+                            "Damage (Ability)": "-25%"
+                        },
+                        "Density": {
+                            "Damage (Ability)": "+15%",
+                            "Base Crit Bonus (Ability)": "+0.05",
+                            "Area (Ability)": "-10%"
+                        }
+                    },
+                    "VII": {
+                        "Speed": {
+                            "Movement Speed (Ability)": "+10%",
+                            "Range (Ability)": "+5%",
+                            "Damage (Ability)": "+15%"
+                        },
+                        "Roughness": {
+                            "Base Crit Chance (Ability)": "+0.15",
+                            "Crit Bonus (Ability)": "+5%"
+                        }
+                    },
+                    "VIII": {
+                        "Roughness": {
+                            "Base Crit Chance (Ability)": "+0.15",
+                            "Crit Bonus (Ability)": "+5%"
+                        }
+                    },
+                    "IX": {
+                        "Roughness": {
+                            "Base Crit Chance (Ability)": "+0.15",
+                            "Crit Bonus (Ability)": "+5%"
+                        }
+                    },
+                    "X": {
+                        "Speed": {
+                            "Movement Speed (Ability)": "+10%",
+                            "Range (Ability)": "+5%",
+                            "Damage (Ability)": "+15%"
+                        },
+                        "Bodies": {
+                            "Orb (Ability)": "+1",
+                            "Area (Ability)": "-10%",
+                            "Damage (Ability)": "-25%"
+                        },
+                        "Material": {
+                            "Base Damage (Ability)": "+7"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "Lightning Strike",
+                "type": "Lightning, Elemental",
+                "mastery_levels": {
+                    "I": {
+                        "Conductivity": {
+                            "Base Crit Chance (Ability)": "+0.10",
+                            "Area (Ability)": "+15%",
+                            "Attack Speed (Ability)": "-5%"
+                        },
+                        "Intensity": {
+                            "Damage (Ability)": "+20%",
+                            "Crit Bonus (Ability)": "+20%",
+                            "Area (Ability)": "-10%"
+                        },
+                        "Charges": {
+                            "Lightning Strike (Ability)": "+1",
+                            "Damage (Ability)": "-10%"
+                        }
+                    },
+                    "II": {
+                        "Conductivity": {
+                            "Base Crit Chance (Ability)": "+0.10",
+                            "Area (Ability)": "+15%",
+                            "Attack Speed (Ability)": "-5%"
+                        },
+                        "Conversion": {
+                            "Attack Speed (Ability)": "+15%"
+                        },
+                        "Charges": {
+                            "Lightning Strike (Ability)": "+1",
+                            "Damage (Ability)": "-10%"
+                        }
+                    },
+                    "III": {
+                        "Intensity": {
+                            "Damage (Ability)": "+20%",
+                            "Crit Bonus (Ability)": "+20%",
+                            "Area (Ability)": "-10%"
+                        },
+                        "Capacity": {
+                            "Base Damage (Ability)": "+100",
+                            "Effect On Hit Chance (Ability)": "-50%"
+                        },
+                        "Repercussion": {
+                            "Electrify Chance (Ability)": "+100%",
+                            "Base Damage (Ability)": "-50"
+                        }
+                    },
+                    "IV": {
+                        "Conductivity": {
+                            "Base Crit Chance (Ability)": "+0.10",
+                            "Area (Ability)": "+15%",
+                            "Attack Speed (Ability)": "-5%"
+                        },
+                        "Charges": {
+                            "Lightning Strike (Ability)": "+1",
+                            "Damage (Ability)": "-10%"
+                        }
+                    },
+                    "V": {
+                        "Conductivity": {
+                            "Base Crit Chance (Ability)": "+0.10",
+                            "Area (Ability)": "+15%",
+                            "Attack Speed (Ability)": "-5%"
+                        },
+                        "Conversion": {
+                            "Attack Speed (Ability)": "+15%"
+                        }
+                    },
+                    "VI": {
+                        "Capacity": {
+                            "Base Damage (Ability)": "+100",
+                            "Effect On Hit Chance (Ability)": "-50%"
+                        },
+                        "Repercussion": {
+                            "Electrify Chance (Ability)": "+100%",
+                            "Base Damage (Ability)": "-50"
+                        }
+                    },
+                    "VII": {
+                        "Conductivity": {
+                            "Base Crit Chance (Ability)": "+0.10",
+                            "Area (Ability)": "+15%",
+                            "Attack Speed (Ability)": "-5%"
+                        }
+                    },
+                    "VIII": {
+                        "Conversion": {
+                            "Attack Speed (Ability)": "+15%"
+                        }
+                    },
+                    "IX": {
+                        "Conversion": {
+                            "Attack Speed (Ability)": "+15%"
+                        }
+                    },
+                    "X": {
+                        "Conductivity": {
+                            "Base Crit Chance (Ability)": "+0.10",
+                            "Area (Ability)": "+15%",
+                            "Attack Speed (Ability)": "-5%"
+                        },
+                        "Capacity": {
+                            "Base Damage (Ability)": "+100",
+                            "Effect On Hit Chance (Ability)": "-50%"
+                        },
+                        "Repercussion": {
+                            "Electrify Chance (Ability)": "+100%",
+                            "Base Damage (Ability)": "-50"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "Flame Strike",
+                "type": "Fire, Elemental, Melee",
+                "mastery_levels": {
+                    "I": {
+                        "Mighty": {
+                            "Damage (Ability)": "+20%"
+                        },
+                        "Deadly": {
+                            "Crit Bonus (Ability)": "+50%"
+                        },
+                        "Heated Up": {
+                            "Burn Chance (Ability)": "+30%"
+                        }
+                    },
+                    "II": {
+                        "Mighty": {
+                            "Damage (Ability)": "+20%"
+                        },
+                        "Fury": {
+                            "Attack Speed (Ability)": "+20%"
+                        },
+                        "Heated Up": {
+                            "Burn Chance (Ability)": "+30%"
+                        }
+                    },
+                    "III": {
+                        "Fury": {
+                            "Attack Speed (Ability)": "+20%"
+                        },
+                        "Deadly": {
+                            "Crit Bonus (Ability)": "+50%"
+                        },
+                        "Flow": {
+                            "Charge Duration (Ability)": "-10%"
+                        },
+                        "Overpowered": {
+                            "Charge Multiplier (Ability)": "+20%"
+                        }
+                    },
+                    "IV": {
+                        "Mighty": {
+                            "Damage (Ability)": "+20%"
+                        },
+                        "Heated Up": {
+                            "Burn Chance (Ability)": "+30%"
+                        }
+                    },
+                    "V": {
+                        "Mighty": {
+                            "Damage (Ability)": "+20%"
+                        },
+                        "Fury": {
+                            "Attack Speed (Ability)": "+20%"
+                        }
+                    },
+                    "VI": {
+                        "Flow": {
+                            "Charge Duration (Ability)": "-10%"
+                        },
+                        "Overpowered": {
+                            "Charge Multiplier (Ability)": "+20%"
+                        }
+                    },
+                    "VII": {
+                        "Mighty": {
+                            "Damage (Ability)": "+20%"
+                        }
+                    },
+                    "VIII": {
+                        "Fury": {
+                            "Attack Speed (Ability)": "+20%"
+                        }
+                    },
+                    "IX": {
+                        "Fury": {
+                            "Attack Speed (Ability)": "+20%"
+                        }
+                    },
+                    "X": {
+                        "Mighty": {
+                            "Damage (Ability)": "+20%"
+                        },
+                        "Deadly": {
+                            "Crit Bonus (Ability)": "+50%"
+                        },
+                        "Heated Up": {
+                            "Burn Chance (Ability)": "+30%"
+                        },
+                        "Flow": {
+                            "Charge Duration (Ability)": "-10%"
+                        },
+                        "Overpowered": {
+                            "Charge Multiplier (Ability)": "+20%"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "Frost Avalanche",
+                "type": "Unknown",
+                "I": {
+                    "Frost": {
+                        "Frost Chance (Ability)": "+20%"
+                    },
+                    "Force": {
+                        "Force (Ability)": "+10%",
+                        "Range(Ability)": "+10%",
+                        "Damage (Ability)": "+10%"
+                    }
+                },
+                "II": {
+                    "Frost": {
+                        "Frost Chance (Ability)": "+20%"
+                    },
+                    "Impact": {
+                        "Damage (Ability)": "+20%"
+                    },
+                    "Frequence": {
+                        "Attack Speed (Ability)": "+15%"
+                    }
+                },
+                "IV": {
+                    "Frost": {
+                        "Frost Chance (Ability)": "+20%"
+                    },
+                    "Frequence": {
+                        "Attack Speed (Ability)": "+15%"
+                    }
+                },
+                "V": {
+                    "Frost": {
+                        "Frost Chance (Ability)": "+20%"
+                    },
+                    "Impact": {
+                        "Damage (Ability)": "+20%"
+                    },
+                    "Force": {
+                        "Force (Ability)": "+10%",
+                        "Range(Ability)": "+10%",
+                        "Damage (Ability)": "+10%"
+                    }
+                },
+                "VII": {
+                    "Frost": {
+                        "Frost Chance (Ability)": "+20%"
+                    },
+                    "Force": {
+                        "Force (Ability)": "+10%",
+                        "Range(Ability)": "+10%",
+                        "Damage (Ability)": "+10%"
+                    }
+                },
+                "VIII": {
+                    "Frost": {
+                        "Frost Chance (Ability)": "+20%"
+                    },
+                    "Impact": {
+                        "Damage (Ability)": "+20%"
+                    },
+                    "Frequence": {
+                        "Attack Speed (Ability)": "+15%"
+                    }
+                },
+                "III": {
+                    "Impact": {
+                        "Damage (Ability)": "+20%"
+                    },
+                    "Force": {
+                        "Force (Ability)": "+10%",
+                        "Range(Ability)": "+10%",
+                        "Damage (Ability)": "+10%"
+                    },
+                    "Attraction": {
+                        "Force (Ability)-30 Base Knockback Force (Ability)": "+25%"
+                    },
+                    "Waves": {}
+                },
+                "VI": {
+                    "Impact": {
+                        "Damage (Ability)": "+20%"
+                    },
+                    "Frequence": {
+                        "Attack Speed (Ability)": "+15%"
+                    },
+                    "Attraction": {
+                        "Force (Ability)-30 Base Knockback Force (Ability)": "+25%"
+                    },
+                    "Waves": {}
+                },
+                "X": {
+                    "Attraction": {
+                        "Force (Ability)-30 Base Knockback Force (Ability)": "+25%"
+                    },
+                    "Waves": {}
+                }
+            },
+            {
+                "name": "Ring Blades",
+                "effect": "Physical, Projectile, Melee"
+            },
+            {
+                "name": "Transfixion",
+                "effect": "Magic, Projectile, Fragile"
+            },
+            {
+                "name": "Dragon's Breath",
+                "effect": "Fire, Elemental, Area"
+            },
+            {
+                "name": "Radiant Aura",
+                "effect": "Magic, Area"
+            },
+            {
+                "name": "Summon Golem",
+                "effect": "Physical, Melee, Summon"
+            },
+            {
+                "name": "Meteor Strike",
+                "effect": "Fire, Elemental, Projectile, Area"
+            },
+            {
+                "name": "Kugelblitz",
+                "effect": "Lightning, Elemental, Projectile, Area"
+            },
+            {
+                "name": "Arcane Rift",
+                "effect": "Magic, Area"
+            },
+            {
+                "name": "Spirit Warrior",
+                "effect": "Summon, Melee, Physical"
+            }
+        ]
+    },
+    "class_traits": {
+        "classes": [
+            {
+                "class": "Swordsman",
+                "weapon": "Zweih\u00c3\u00a4nder",
+                "traits": [
+                    {
+                        "type": "Weapon Proficiency",
+                        "I": {
+                            "Dexterity": {
+                                "Attack Speed (Main Weapon)": "+10%",
+                                "Multihit (Main Weapon)": "+10%"
+                            },
+                            "Power": {
+                                "Damage (Main Weapon)": "+20%"
+                            }
+                        },
+                        "II": {
+                            "Dexterity": {
+                                "Attack Speed (Main Weapon)": "+10%",
+                                "Area (Main Weapon)": "+10%"
+                            },
+                            "Power": {
+                                "Damage (Main Weapon)": "+10%",
+                                "Range (Main Weapon)": "+10%"
+                            }
+                        },
+                        "III": {
+                            "Dexterity": {
+                                "Multihit (Main Weapon)": "+10%",
+                                "Range (Main Weapon)": "+10%"
+                            },
+                            "Power": {
+                                "Damage (Main Weapon)": "+10%",
+                                "Area (Main Weapon)": "+10%"
+                            }
+                        },
+                        "IV": {
+                            "Dexterity": {
+                                "Attack Speed (Main Weapon)": "+15%",
+                                "Multihit (Main Weapon)": "+15%"
+                            },
+                            "Power": {
+                                "Damage": "+10%",
+                                "Force": "+10%"
+                            }
+                        }
+                    },
+                    {
+                        "type": "Proficient Stance",
+                        "I": {
+                            "Defensive": {
+                                "Defense": "+3",
+                                "Block Strength": "+3"
+                            },
+                            "Offensive": {
+                                "Area (Main Weapon)": "+10%",
+                                "Range (Main Weapon)": "+10%"
+                            }
+                        },
+                        "II": {
+                            "Defensive": {
+                                "Range (Main Weapon)": "+10%",
+                                "Defense": "+3"
+                            },
+                            "Offensive": {
+                                "Range (Main Weapon)": "+10%",
+                                "Damage (Main Weapon)": "+10%"
+                            }
+                        },
+                        "III": {
+                            "Defensive": {
+                                "Area (Main Weapon)": "+10%",
+                                "Block Strength": "+3"
+                            },
+                            "Offensive": {
+                                "Area (Main Weapon)": "+10%",
+                                "Attack Speed (Main Weapon)": "+10%"
+                            }
+                        },
+                        "IV": {
+                            "Defensive": {
+                                "Defense": "+6",
+                                "Block Strength": "+6"
+                            },
+                            "Offensive": {
+                                "Area": "+10%",
+                                "Range": "+10%"
+                            }
+                        }
+                    },
+                    {
+                        "type": "Dedication",
+                        "I": {
+                            "Health": {
+                                "Base Health": "+70",
+                                "Movement Speed": "+6%"
+                            },
+                            "Regeneration": {
+                                "Base Regeneration": "+0.25/s",
+                                "Movement Speed": "+6%"
+                            }
+                        },
+                        "II": {
+                            "Health": {
+                                "Base Health": "+70",
+                                "Defense": "+3"
+                            },
+                            "Regeneration": {
+                                "Base Regeneration": "+0.25/s",
+                                "Defense": "+3"
+                            }
+                        },
+                        "III": {
+                            "Health": {
+                                "Base Health": "+70",
+                                "Block Strength": "+3"
+                            },
+                            "Regeneration": {
+                                "Base Regeneration": "+0.25/s",
+                                "Block Strength": "+3"
+                            }
+                        },
+                        "IV": {
+                            "Health": {
+                                "Base Health": "+140"
+                            },
+                            "Regeneration": {
+                                "Base Regeneration": "+0.25/s",
+                                "Base Health": "+70"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "class": "Archer",
+                "weapon": "Bow",
+                "traits": [
+                    {
+                        "type": "Weapon Proficiency",
+                        "I": {
+                            "Pierce": {
+                                "Base Force (Main Weapon)": "+1"
+                            },
+                            "Quickdraw": {
+                                "Attack Speed (Main Weapon)": "+10%"
+                            }
+                        },
+                        "II": {
+                            "Pierce": {
+                                "Base Force (Main Weapon)": "+0.5",
+                                "Damage (Main Weapon)": "+10%"
+                            },
+                            "Quickdraw": {
+                                "Attack Speed (Main Weapon)": "+10%"
+                            }
+                        },
+                        "III": {
+                            "Pierce": {
+                                "Base Force (Main Weapon)": "+0.5",
+                                "Damage (Main Weapon)": "+10%"
+                            },
+                            "Quickdraw": {
+                                "Attack Speed (Main Weapon)": "+10%"
+                            }
+                        },
+                        "IV": {
+                            "Pierce": {
+                                "Base Crit Bonus": "+0.15"
+                            },
+                            "Quickdraw": {
+                                "Base Attacks (Main Weapon)": "+0.15/s"
+                            }
+                        }
+                    },
+                    {
+                        "type": "Proficient Stance",
+                        "I": {
+                            "Barrage": {
+                                "Multihit (Main Weapon)": "+15%"
+                            },
+                            "Pinpoint": {
+                                "Base Crit Chance (Main Weapon)": "+0.05",
+                                "Crit Bonus (Main Weapon)": "+15%"
+                            }
+                        },
+                        "II": {
+                            "Barrage": {
+                                "Multihit (Main Weapon)": "+15%"
+                            },
+                            "Pinpoint": {
+                                "Base Crit Chance (Main Weapon)": "+0.05",
+                                "Crit Bonus (Main Weapon)": "+15%"
+                            }
+                        },
+                        "III": {
+                            "Barrage": {
+                                "Multihit (Main Weapon)": "+15%"
+                            },
+                            "Pinpoint": {
+                                "Base Crit Chance (Main Weapon)": "+0.05",
+                                "Crit Bonus (Main Weapon)": "+15%"
+                            }
+                        },
+                        "IV": {
+                            "Barrage": {
+                                "Multihit (Main Weapon)": "+0.3"
+                            },
+                            "Pinpoint": {
+                                "Crit Chance": "+10%"
+                            }
+                        }
+                    },
+                    {
+                        "type": "Dedication",
+                        "I": {
+                            "Agility": {
+                                "Movement Speed": "+9%",
+                                "Base Health": "+50"
+                            },
+                            "Regeneration": {
+                                "Base Regeneration": "+0.20/s",
+                                "Base Health": "+50"
+                            }
+                        },
+                        "II": {
+                            "Agility": {
+                                "Movement Speed": "+9%",
+                                "Base Defense": "+3"
+                            },
+                            "Regeneration": {
+                                "Base Regeneration": "+0.20/s",
+                                "Base Health": "+50"
+                            }
+                        },
+                        "III": {
+                            "Agility": {
+                                "Movement Speed": "+9%",
+                                "Base Health": "+50"
+                            },
+                            "Regeneration": {
+                                "Base Regeneration": "+0.20/s",
+                                "Base Defense": "+3"
+                            }
+                        },
+                        "IV": {
+                            "Agility": {
+                                "Movement Speed": "+18%"
+                            },
+                            "Regeneration": {
+                                "Base Regeneration": "+0.20/s",
+                                "Movement Speed": "+9%"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "class": "Exterminator",
+                "weapon": "Flame Caster",
+                "traits": [
+                    {
+                        "type": "Weapon Proficiency",
+                        "I": {
+                            "Hellfire": {
+                                "Burn Chance": "+20%"
+                            },
+                            "Stream": {
+                                "Attack Speed (Main Weapon)": "+15%"
+                            }
+                        },
+                        "II": {
+                            "Hellfire": {
+                                "Burn Chance": "+20%"
+                            },
+                            "Stream": {
+                                "Attack Speed (Main Weapon)": "+15%"
+                            }
+                        },
+                        "III": {
+                            "Hellfire": {
+                                "Burn Chance": "+20%"
+                            },
+                            "Stream": {
+                                "Attack Speed (Main Weapon)": "+15%"
+                            }
+                        },
+                        "IV": {
+                            "Hellfire": {
+                                "Burn Chance": "+40%"
+                            },
+                            "Stream": {
+                                "Attack Speed (Main Weapon)": "+30%"
+                            }
+                        }
+                    },
+                    {
+                        "type": "Proficient Stance",
+                        "I": {
+                            "Concentration": {
+                                "Force (Main Weapon)": "+10%",
+                                "Damage (Main Weapon)": "+10%"
+                            },
+                            "Conflagration": {
+                                "Area (Fire)": "+10%",
+                                "Range (Fire)": "+5%"
+                            }
+                        },
+                        "II": {
+                            "Concentration": {
+                                "Force (Main Weapon)": "+10%",
+                                "Damage (Main Weapon)": "+10%"
+                            },
+                            "Conflagration": {
+                                "Range (Fire)": "+10%",
+                                "Multihit (Fire)": "+5%"
+                            }
+                        },
+                        "III": {
+                            "Concentration": {
+                                "Force (Main Weapon)": "+10%",
+                                "Damage (Main Weapon)": "+10%"
+                            },
+                            "Conflagration": {
+                                "Multihit (Fire)": "+10%",
+                                "Area (Fire)": "+5%"
+                            }
+                        },
+                        "IV": {
+                            "Concentration": {
+                                "Base Damage (Main Weapon)": "+5"
+                            },
+                            "Conflagration": {
+                                "Burn Damage": "+30%"
+                            }
+                        }
+                    },
+                    {
+                        "type": "Dedication",
+                        "I": {
+                            "Heat": {
+                                "Base Regeneration": "+0.20/s",
+                                "Movement Speed": "+6%"
+                            },
+                            "Steeled": {
+                                "Base Health": "+100"
+                            }
+                        },
+                        "II": {
+                            "Heat": {
+                                "Movement Speed": "+12%"
+                            },
+                            "Steeled": {
+                                "Base Block Strength": "+6"
+                            }
+                        },
+                        "III": {
+                            "Heat": {
+                                "Base Regeneration": "+0.20/s",
+                                "Movement Speed": "+6%"
+                            },
+                            "Steeled": {
+                                "Base Defense": "+6"
+                            }
+                        },
+                        "IV": {
+                            "Heat": {
+                                "Base Regeneration": "+0.40/s"
+                            },
+                            "Steeled": {
+                                "Base Health": "+50",
+                                "Base Block Strength": "+3",
+                                "Base Defense": "+3"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "class": "Warlock",
+                "weapon": "Ravaging Spectres",
+                "traits": [
+                    {
+                        "type": "Weapon Proficiency",
+                        "I": {
+                            "Enhancement": {
+                                "Damage (Main Weapon)": "+20%"
+                            },
+                            "Sacrifice": {
+                                "Multihit (Summons)": "+20%",
+                                "Spawns (Summons)": "+20%",
+                                "Force (Main Weapon)": "-10%"
+                            }
+                        },
+                        "II": {
+                            "Enhancement": {
+                                "Damage (Main Weapon)": "+20%"
+                            },
+                            "Sacrifice": {
+                                "Multihit (Summons)": "+20%",
+                                "Spawns (Summons)": "+20%",
+                                "Force (Main Weapon)": "-10%"
+                            }
+                        },
+                        "III": {
+                            "Enhancement": {
+                                "Attack Speed (Main Weapon)": "+15%"
+                            },
+                            "Sacrifice": {
+                                "Base Damage (Summons)": "+5",
+                                "Force (Main Weapon)": "-10%"
+                            }
+                        },
+                        "IV": {
+                            "Enhancement": {
+                                "Multihit (Main Weapon)": "+30%"
+                            },
+                            "Sacrifice": {
+                                "Base Damage (Summons)": "+10",
+                                "Force (Main Weapon)": "-20%"
+                            }
+                        }
+                    },
+                    {
+                        "type": "Proficient Stance",
+                        "I": {
+                            "Channeling": {
+                                "Force (Main Weapon)": "+30%"
+                            },
+                            "Summon Enhancement": {
+                                "Damage (Summons)": "+15%"
+                            }
+                        },
+                        "II": {
+                            "Channeling": {
+                                "Damage (Main Weapon)": "+10%",
+                                "Force (Main Weapon)": "+10%"
+                            },
+                            "Summon Enhancement": {
+                                "Damage (Summons)": "+15%"
+                            }
+                        },
+                        "III": {
+                            "Channeling": {
+                                "Attack Speed (Main Weapon)": "+7%",
+                                "Force (Main Weapon)": "+10%"
+                            },
+                            "Summon Enhancement": {
+                                "Attack Speed (Summons)": "+10%",
+                                "Movement Speed (Summons)": "+15%"
+                            }
+                        },
+                        "IV": {
+                            "Channeling": {
+                                "Damage (Main Weapon)": "+10%",
+                                "Attack Speed (Main Weapon)": "+10%",
+                                "Force (Main Weapon)": "+10%"
+                            },
+                            "Summon Enhancement": {
+                                "Multihit (Summons)": "+25%",
+                                "Spawns (Summons)": "+25%"
+                            }
+                        }
+                    },
+                    {
+                        "type": "Dedication",
+                        "I": {
+                            "Bloodletting": {
+                                "Health": "-10%",
+                                "Damage (Main Weapon)": "+20%"
+                            },
+                            "Defensive": {
+                                "Movement Speed": "+4%",
+                                "Base Block Strength": "+2",
+                                "Base Defense": "+2"
+                            }
+                        },
+                        "II": {
+                            "Bloodletting": {
+                                "Health": "-10%",
+                                "Damage (Main Weapon)": "+20%"
+                            },
+                            "Defensive": {
+                                "Movement Speed": "+4%",
+                                "Base Block Strength": "+2",
+                                "Base Defense": "+2"
+                            }
+                        },
+                        "III": {
+                            "Bloodletting": {
+                                "Health": "-10%",
+                                "Damage (Main Weapon)": "+20%"
+                            },
+                            "Defensive": {
+                                "Movement Speed": "+4%",
+                                "Base Block Strength": "+2",
+                                "Base Defense": "+2"
+                            }
+                        },
+                        "IV": {
+                            "Bloodletting": {
+                                "Health": "-20%",
+                                "Multihit (Main Weapon)": "+40%"
+                            },
+                            "Defensive": {
+                                "Movement Speed": "+8%",
+                                "Base Block Strength": "+4",
+                                "Base Defense": "+4"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "class": "Cleric",
+                "weapon": "Holy Sceptre",
+                "traits": [
+                    {
+                        "type": "Weapon Proficiency",
+                        "I": {
+                            "Punishment": {
+                                "Damage (Main Weapon)": "+30%",
+                                "Area (Main Weapon)": "-10%",
+                                "Range (Main Weapon)": "-10%"
+                            },
+                            "Purification": {
+                                "Damage (Magic)": "+10%",
+                                "Area (Main Weapon)": "+10%",
+                                "Range (Main Weapon)": "+10%"
+                            }
+                        },
+                        "II": {
+                            "Punishment": {
+                                "Attack Speed (Main Weapon)": "+15%",
+                                "Area (Main Weapon)": "-10%",
+                                "Range (Main Weapon)": "-10%"
+                            },
+                            "Purification": {
+                                "Damage (Magic)": "+10%",
+                                "Area (Main Weapon)": "+10%",
+                                "Range (Main Weapon)": "+10%"
+                            }
+                        },
+                        "III": {
+                            "Punishment": {
+                                "Multihit (Main Weapon)": "+25%",
+                                "Area (Main Weapon)": "-10%",
+                                "Range (Main Weapon)": "-10%"
+                            },
+                            "Purification": {
+                                "Damage (Magic)": "+10%",
+                                "Area (Main Weapon)": "+10%",
+                                "Range (Main Weapon)": "+10%"
+                            }
+                        },
+                        "IV": {
+                            "Punishment": {
+                                "Base Crit Chance (Main Weapon)": "+0.10",
+                                "Crit Bonus (Main Weapon)": "+30%",
+                                "Area (Main Weapon)": "-25%"
+                            },
+                            "Purification": {
+                                "Attack Speed (Magic)": "+10%",
+                                "Area (Main Weapon)": "+20%",
+                                "Range (Main Weapon)": "+20%"
+                            }
+                        }
+                    },
+                    {
+                        "type": "Proficient Stance",
+                        "I": {
+                            "Propagation": {
+                                "Effect Chance (Debuff)": "+15%"
+                            },
+                            "Protection": {
+                                "Base Regeneration": "+0.20/s",
+                                "Force (Main Weapon)": "+10%"
+                            }
+                        },
+                        "II": {
+                            "Propagation": {
+                                "Effect Chance (Debuff)": "+15%"
+                            },
+                            "Protection": {
+                                "Base Regeneration": "+0.20/s",
+                                "Force (Main Weapon)": "+10%"
+                            }
+                        },
+                        "III": {
+                            "Propagation": {
+                                "Effect Chance (Debuff)": "+15%"
+                            },
+                            "Protection": {
+                                "Base Regeneration": "+0.20/s",
+                                "Force (Main Weapon)": "+10%"
+                            }
+                        },
+                        "IV": {
+                            "Propagation": {
+                                "Effect Chance (Debuff)": "+30%"
+                            },
+                            "Protection": {
+                                "Base Regeneration": "+0.40/s",
+                                "Force (Main Weapon)": "+20%"
+                            }
+                        }
+                    },
+                    {
+                        "type": "Dedication",
+                        "I": {
+                            "Passible": {
+                                "Base Regeneration": "+0.25/s",
+                                "Movement Speed": "+6%"
+                            },
+                            "Penitent": {
+                                "Base Defense": "+8"
+                            }
+                        },
+                        "II": {
+                            "Passible": {
+                                "Base Regeneration": "+0.25/s",
+                                "Movement Speed": "+6%"
+                            },
+                            "Penitent": {
+                                "Base Defense": "+8"
+                            }
+                        },
+                        "III": {
+                            "Passible": {
+                                "Base Regeneration": "+0.50/s"
+                            },
+                            "Penitent": {
+                                "Base Defense": "+4",
+                                "Movement Speed": "+6%"
+                            }
+                        },
+                        "IV": {
+                            "Passible": {
+                                "Regeneration": "+25%"
+                            },
+                            "Penitent": {
+                                "Defense": "+10%",
+                                "Movement Speed": "+6%"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "class": "Sorceress",
+                "weapon": "Chain Lightning",
+                "traits": [
+                    {
+                        "type": "Weapon Proficiency",
+                        "I": {
+                            "Strength": {
+                                "Damage (Main Weapon)": "+10%",
+                                "Crit Damage (Main Weapon)": "+15%"
+                            },
+                            "Voltage": {
+                                "Electrify Chance": "+20%"
+                            }
+                        },
+                        "II": {
+                            "Strength": {
+                                "Damage (Main Weapon)": "+10%",
+                                "Crit Damage (Main Weapon)": "+15%"
+                            },
+                            "Voltage": {
+                                "Electrify Chance": "+20%"
+                            }
+                        },
+                        "III": {
+                            "Strength": {
+                                "Damage (Main Weapon)": "+10%",
+                                "Crit Damage (Main Weapon)": "+15%"
+                            },
+                            "Voltage": {
+                                "Electrify Chance": "+20%"
+                            }
+                        },
+                        "IV": {
+                            "Strength": {
+                                "Damage (Main Weapon)": "+20%",
+                                "Crit Damage (Main Weapon)": "+30%"
+                            },
+                            "Voltage": {
+                                "Effect": "Critical Hits Apply Electrify (Lightning)"
+                            }
+                        }
+                    },
+                    {
+                        "type": "Proficient Stance",
+                        "I": {
+                            "Stability": {
+                                "Base Crit Chance (Lightning)": "+0.1"
+                            },
+                            "Strikes": {
+                                "Base Force (Main Weapon)": "+0.5"
+                            }
+                        },
+                        "II": {
+                            "Stability": {
+                                "Base Crit Chance (Lightning)": "+0.1"
+                            },
+                            "Strikes": {
+                                "Base Multihit (Main Weapon)": "+0.3"
+                            }
+                        },
+                        "III": {
+                            "Stability": {
+                                "Base Crit Chance (Lightning)": "+0.1"
+                            },
+                            "Strikes": {
+                                "Base Force (Main Weapon)": "+0.5"
+                            }
+                        },
+                        "IV": {
+                            "Stability": {
+                                "Attack Speed (Lightning)": "+15%"
+                            },
+                            "Strikes": {
+                                "Base Multihit (Main Weapon)": "+0.3"
+                            }
+                        }
+                    },
+                    {
+                        "type": "Dedication",
+                        "I": {
+                            "Nimble": {
+                                "Movement Speed": "+9%",
+                                "Base Health": "+50"
+                            },
+                            "Protection": {
+                                "Block Strength": "+4",
+                                "Base Health": "+50"
+                            }
+                        },
+                        "II": {
+                            "Nimble": {
+                                "Movement Speed": "+9%",
+                                "Base Health": "+50"
+                            },
+                            "Protection": {
+                                "Block Strength": "+4",
+                                "Health Regeneration per Second": "+0.20"
+                            }
+                        },
+                        "III": {
+                            "Nimble": {
+                                "Movement Speed": "+9%",
+                                "Health Regeneration per Second": "+0.20"
+                            },
+                            "Protection": {
+                                "Block Strength": "+4",
+                                "Base Health": "+50"
+                            }
+                        },
+                        "IV": {
+                            "Nimble": {
+                                "Movement Speed": "+18%"
+                            },
+                            "Protection": {
+                                "Block Strength": "+8"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "class": "Shield Maiden",
+                "weapon": "War Hammer, Shield",
+                "traits": [
+                    {
+                        "type": "Weapon Proficiency",
+                        "I": {
+                            "Mace": {
+                                "Crit Bonus (Melee)": "+40%",
+                                "Damage (Melee)": "+5%"
+                            },
+                            "Shield": {
+                                "Block Strength": "+4",
+                                "Damage (Main Weapon)": "+10%"
+                            }
+                        },
+                        "II": {
+                            "Mace": {
+                                "Crit Bonus (Melee)": "+40%",
+                                "Damage (Melee)": "+5%"
+                            },
+                            "Shield": {
+                                "Block Strength": "+4",
+                                "Damage (Main Weapon)": "+10%"
+                            }
+                        },
+                        "III": {
+                            "Mace": {
+                                "Crit Bonus (Melee)": "+40%",
+                                "Damage (Melee)": "+5%"
+                            },
+                            "Shield": {
+                                "Block Strength": "+4",
+                                "Damage (Main Weapon)": "+10%"
+                            }
+                        },
+                        "IV": {
+                            "Mace": {
+                                "Base Crit Bonus (Melee)": "+0.2"
+                            },
+                            "Shield": {
+                                "Damage (Melee)": "+30%"
+                            }
+                        }
+                    },
+                    {
+                        "type": "Proficient Stance",
+                        "I": {
+                            "Dextrous": {
+                                "Attack Speed (Main Weapon)": "+7%",
+                                "Block Strength": "+4"
+                            },
+                            "Guarding": {
+                                "Base Defense": "+4",
+                                "Damage (Melee)": "+10%"
+                            }
+                        },
+                        "II": {
+                            "Dextrous": {
+                                "Attack Speed (Main Weapon)": "+7%",
+                                "Damage (Main Weapon)": "+10%"
+                            },
+                            "Guarding": {
+                                "Base Defense": "+4",
+                                "Block Strength": "+4"
+                            }
+                        },
+                        "III": {
+                            "Dextrous": {
+                                "Attack Speed (Main Weapon)": "+7%",
+                                "Block Strength": "+4"
+                            },
+                            "Guarding": {
+                                "Base Defense": "+4",
+                                "Damage (Melee)": "+10%"
+                            }
+                        },
+                        "IV": {
+                            "Dextrous": {
+                                "Attack Speed (Main Weapon)": "+14%",
+                                "Damage (Main Weapon)": "+20%"
+                            },
+                            "Guarding": {
+                                "Base Defense": "+8",
+                                "Block Strength": "+8"
+                            }
+                        }
+                    },
+                    {
+                        "type": "Dedication",
+                        "I": {
+                            "Stalwart": {
+                                "Base Health": "+50",
+                                "Block Strength": "+4"
+                            },
+                            "Striding": {
+                                "Movement Speed": "+6%",
+                                "Regeneration": "+0.25/s"
+                            }
+                        },
+                        "II": {
+                            "Stalwart": {
+                                "Base Health": "+50",
+                                "Regeneration": "+0.25/s"
+                            },
+                            "Striding": {
+                                "Movement Speed": "+6%",
+                                "Block Strength": "+4"
+                            }
+                        },
+                        "III": {
+                            "Stalwart": {
+                                "Base Health": "+50",
+                                "Block Strength": "+4"
+                            },
+                            "Striding": {
+                                "Movement Speed": "+6%",
+                                "Regeneration": "+0.25/s"
+                            }
+                        },
+                        "IV": {
+                            "Stalwart": {
+                                "Base Health": "+50",
+                                "Regeneration": "+0.25/s"
+                            },
+                            "Striding": {
+                                "Movement Speed": "+6%",
+                                "Block Strength": "+4"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "class": "Beast Huntress",
+                "weapon": "Frost Spear, Hound",
+                "traits": [
+                    {
+                        "type": "Weapon Proficiency",
+                        "I": {
+                            "Frost Bite": {
+                                "Damage (Ice)": "+15%"
+                            },
+                            "Piercing": {
+                                "Base Crit Chance (Main Weapon)": "+0.05",
+                                "Crit Bonus (Main Weapon)": "+15%"
+                            }
+                        },
+                        "II": {
+                            "Frost Bite": {
+                                "Damage (Ice)": "+15%"
+                            },
+                            "Piercing": {
+                                "Base Crit Chance (Main Weapon)": "+0.05",
+                                "Crit Bonus (Main Weapon)": "+15%"
+                            }
+                        },
+                        "III": {
+                            "Frost Bite": {
+                                "Damage (Ice)": "+15%"
+                            },
+                            "Piercing": {
+                                "Base Crit Chance (Main Weapon)": "+0.05",
+                                "Crit Bonus (Main Weapon)": "+15%"
+                            }
+                        },
+                        "IV": {
+                            "Frost Bite": {
+                                "Frost Damage": "+30%"
+                            },
+                            "Piercing": {
+                                "Base Crit Chance (Main Weapon)": "+0.10",
+                                "Crit Bonus (Main Weapon)": "+30%"
+                            },
+                            "Throat Clamp": {
+                                "Base Crit Bonus (Hound)": "+0.20"
+                            }
+                        }
+                    },
+                    {
+                        "type": "Proficient Stance",
+                        "I": {
+                            "Blizzard": {
+                                "Frost Chance": "+20%"
+                            },
+                            "Power": {
+                                "Damage (Main Weapon)": "+20%"
+                            }
+                        },
+                        "II": {
+                            "Blizzard": {
+                                "Frost Chance": "+20%"
+                            },
+                            "Power": {
+                                "Damage (Main Weapon)": "+20%"
+                            }
+                        },
+                        "III": {
+                            "Blizzard": {
+                                "Frost Chance": "+20%"
+                            },
+                            "Power": {
+                                "Damage (Main Weapon)": "+20%"
+                            }
+                        },
+                        "IV": {
+                            "Blizzard": {
+                                "Frost Chance": "+40%"
+                            },
+                            "Power": {
+                                "Damage (Main Weapon)": "+40%"
+                            },
+                            "Wild Hound": {
+                                "Attackspeed (Hound)": "+100%",
+                                "Area (Hound)": "+40%",
+                                "Base Damage (Hound)": "-150"
+                            }
+                        }
+                    },
+                    {
+                        "type": "Dedication",
+                        "I": {
+                            "Fight": {
+                                "Force (Main Weapon)": "+15%",
+                                "Base Defense": "+3"
+                            },
+                            "Flight": {
+                                "Movement Speed": "+9%",
+                                "Base Health": "+50"
+                            }
+                        },
+                        "II": {
+                            "Fight": {
+                                "Force (Main Weapon)": "+15%",
+                                "Base Health": "+50"
+                            },
+                            "Flight": {
+                                "Movement Speed": "+9%",
+                                "Base Regeneration": "+0.25/s"
+                            }
+                        },
+                        "III": {
+                            "Fight": {
+                                "Force (Main Weapon)": "+15%",
+                                "Base Defense": "+3"
+                            },
+                            "Flight": {
+                                "Movement Speed": "+9%",
+                                "Base Health": "+50"
+                            }
+                        },
+                        "IV": {
+                            "Fight": {
+                                "Force (Main Weapon)": "+15%",
+                                "Base Health": "+50"
+                            },
+                            "Flight": {
+                                "Movement Speed": "+9%",
+                                "Base Regeneration": "+0.25/s"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "class": "Norseman",
+                "weapon": "Dual Axe, Frost Nova",
+                "traits": [
+                    {
+                        "type": "Weapon Proficiency",
+                        "I": {
+                            "Extensive": {
+                                "Multistrike (Main Weapon)": "+5%",
+                                "Range (Main Weapon)": "+10%",
+                                "Area (Main Weapon)": "+10%"
+                            },
+                            "Precise": {
+                                "Crit Chance (Physical)": "+10%"
+                            }
+                        },
+                        "II": {
+                            "Extensive": {
+                                "Multistrike (Main Weapon)": "+5%",
+                                "Range (Main Weapon)": "+10%",
+                                "Area (Main Weapon)": "+10%"
+                            },
+                            "Precise": {
+                                "Crit Chance (Physical)": "+10%"
+                            }
+                        },
+                        "III": {
+                            "Extensive": {
+                                "Multistrike (Main Weapon)": "+5%",
+                                "Range (Main Weapon)": "+10%",
+                                "Area (Main Weapon)": "+10%"
+                            },
+                            "Precise": {
+                                "Crit Chance (Physical)": "+10%"
+                            }
+                        },
+                        "IV": {
+                            "Extensive": {
+                                "Multistrike (Main Weapon)": "+20%",
+                                "Range (Main Weapon)": "+10%",
+                                "Area (Main Weapon)": "+10%"
+                            },
+                            "Frail Body": {
+                                "Left Axe": "15% base fragile chance"
+                            },
+                            "Precise": {
+                                "Crit Chance (Physical)": "+20%"
+                            },
+                            "Weak Mind": {
+                                "Right Axe": "15% base affliction chance"
+                            }
+                        }
+                    },
+                    {
+                        "type": "Proficient Stance",
+                        "I": {
+                            "Balanced": {
+                                "Damage (Main Weapon)": "+10%",
+                                "Health": "+15%"
+                            },
+                            "Fury": {
+                                "Attack Speed (Physical)": "+10%"
+                            }
+                        },
+                        "II": {
+                            "Balanced": {
+                                "Damage (Main Weapon)": "+10%",
+                                "Health": "+15%"
+                            },
+                            "Fury": {
+                                "Attack Speed (Physical)": "+10%"
+                            }
+                        },
+                        "III": {
+                            "Balanced": {
+                                "Damage (Main Weapon)": "+10%",
+                                "Health": "+15%"
+                            },
+                            "Fury": {
+                                "Attack Speed (Physical)": "+10%"
+                            }
+                        },
+                        "IV": {
+                            "Balanced": {
+                                "Damage (Main Weapon)": "+25%",
+                                "Health": "+25%"
+                            },
+                            "Cold Steel": {
+                                "Right Axe": "15% base frost chance"
+                            },
+                            "Fury": {
+                                "Attack Speed (Physical)": "+20%"
+                            },
+                            "Hot Iron": {
+                                "Left Axe": "15% base burn chance"
+                            }
+                        }
+                    },
+                    {
+                        "type": "Dedication",
+                        "I": {
+                            "Performance": {
+                                "Movement Speed": "+9%",
+                                "Attack Speed (Main Weapon)": "+5%"
+                            },
+                            "Stamina": {
+                                "Base Regeneration": "+0.30/s",
+                                "Base Health": "+70"
+                            }
+                        },
+                        "II": {
+                            "Performance": {
+                                "Movement Speed": "+9%",
+                                "Attack Speed (Main Weapon)": "+5%"
+                            },
+                            "Stamina": {
+                                "Base Regeneration": "+0.30/s",
+                                "Base Health": "+70"
+                            }
+                        },
+                        "III": {
+                            "Performance": {
+                                "Movement Speed": "+9%",
+                                "Attack Speed (Main Weapon)": "+5%"
+                            },
+                            "Stamina": {
+                                "Base Regeneration": "+0.30/s",
+                                "Base Health": "+70"
+                            }
+                        },
+                        "IV": {
+                            "Performance": {
+                                "Movement Speed": "+18%"
+                            },
+                            "Stamina": {
+                                "Base Regeneration": "+0.60/s"
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}
