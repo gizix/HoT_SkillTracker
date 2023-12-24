@@ -1,25 +1,31 @@
-# Flask Project Structure
+# HoT_SkillTracker
 
-This project follows the standard Flask project structure:
+## About
+This application is a skill tracker for the game "Halls of Torment", facilitating build tracking.
 
-- app/: Main package of the application.
-    - templates/: HTML templates.
-    - static/: Static files like CSS, JavaScript.
-    - __init__.py: Initializes the Flask application.
-    - routes.py: Defines application routes.
-    - models.py: Database models.
-    - forms.py: Form classes for user input.
+## Installation with Poetry
+1. Clone the repository: `git clone https://github.com/gizix/HoT_SkillTracker.git`
+2. Install Poetry if not already installed: `pip install poetry`
+3. Navigate to the project directory: `cd HoT_SkillTracker`
+4. Install dependencies with Poetry: `poetry install --no-root`
 
-- migrations/: Directory for database migrations (managed by Flask-Migrate).
+## Running the Application
+1. Activate the Poetry environment: `poetry shell`
+2. Set environment variables: `export FLASK_APP=app`
+3. Run the server: `flask run`
+4. Access the application at `localhost:5000` in your browser.
 
-- tests/: Unit tests for the application.
+## Features
+- **Skill Tracking**: Manage and view your game builds.
+- **Profile Management**: Save and retrieve your profiles directly in the browser.
 
-- .env: Environment variables for the application.
+## How It Works
+- **Saving Profiles**: Utilizes browser local storage to save user profiles for quick access.
+- **Backend**: Built with Flask, handling routing and server-side logic.
+- **Frontend**: Interactive UI built with HTML, CSS, and JavaScript.
 
-- .flaskenv: Flask-specific environment variables.
+## Contributing
+Contributions are welcome. Please fork the repository and submit a pull request.
 
-- config.py: Configuration for the application (e.g., database details).
-
-- README.md: Project description and instructions.
-
-- pyproject.toml: Dependency file managed by Poetry.
+## License
+[MIT License](LICENSE)

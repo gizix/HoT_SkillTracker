@@ -1,7 +1,26 @@
+[project]
+name = "HoT_SkillTracker"
+version = "1.0.1"
+authors = [
+  { name="Ewvyx"},
+]
+description = "This is a skill tracker GUI for the game: Halls of Torment."
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/gizix/HoT_SkillTracker"
+"Bug Tracker" = "https://github.com/gizix/HoT_SkillTracker/issues"
+
 [tool.poetry]
 name = "hot-skilltracker"
-version = "0.1.0"
-description = ""
+version = "1.0.1"
+description = "This is a skill tracker GUI for the game: Halls of Torment."
 authors = ["Ewvyx"]
 readme = "README.md"
 
