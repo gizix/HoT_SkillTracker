@@ -4,18 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trait Comparer</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/ability_traits.js') }}"></script>
 </head>
 <body>
+    <div class="color-legend">
+        <div class="color-legend-item">
+            <div class="yellow"></div> Ability to Pick Up (1 click)
+        </div>
+        <div class="color-legend-item">
+            <div class="gray"></div> Use Reverberant Tincture (2 clicks)
+        </div>
+        <div class="color-legend-item">
+            <div class="darkred"></div> Use Potion of Oblivion (3 clicks)
+        </div>
+    </div>
     <div class="container">
         <button onclick="showSaveMenu()">Save Build</button>
         <button onclick="loadState()">Load Build</button>
+        <button id="switchToAbilityTraits">Switch to Ability Traits</button>
         <div id="selectionContainer">
             <select id="classDropdown1"></select>
             <select id="classDropdown2"></select>
             <button onclick="compareTraits()">Compare</button>
+        </div>
+        <div id="abilitySelectionContainer">
+            <select id="abilityDropdown"></select>
         </div>
         <div id="panelsContainer">
             <div id="traitsPanel1">
@@ -42,6 +57,10 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div id="abilityTraitsContainer" style="display: none;">
+
+        <!-- Content for the ability_traits view will go here -->
     </div>
     <div id="summaryModal" class="summary-modal">
         <div class="summary-modal-content">

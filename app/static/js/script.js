@@ -15,6 +15,41 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('saveStateModal').style.display = 'none';
         });
     }
+
+    const switchButton = document.getElementById('switchToAbilityTraits');
+
+    // Function to toggle between views
+    function toggleView() {
+        const abilityTraitsContainer = document.getElementById('abilityTraitsContainer');
+        const panelsContainer = document.getElementById('panelsContainer');
+        const selectionContainer = document.getElementById('selectionContainer')
+        const abilitySelectionContainer = document.getElementById('abilitySelectionContainer')
+
+
+        if (abilityTraitsContainer.style.display === 'none') {
+            // Switch to Ability Traits view
+            abilityTraitsContainer.style.display = 'block';
+            panelsContainer.style.display = 'none';
+            selectionContainer.style.display = 'none';
+            switchButton.textContent = 'Switch to Class Traits';
+            abilitySelectionContainer.style.display = 'flex';
+        } else {
+            // Switch to Class Traits view
+            abilityTraitsContainer.style.display = 'none';
+            panelsContainer.style.display = 'flex';
+            selectionContainer.style.display = 'flex'
+            switchButton.textContent = 'Switch to Ability Traits';
+            abilitySelectionContainer.style.display = 'none'
+        }
+    }
+
+    switchButton.addEventListener('click', function() {
+        loadAbilityTraits();
+        toggleView();
+        if (switchButton.textContent === 'Switch to Ability Traits') {
+            loadColumns();
+        }
+    });
 });
 
 function formatTraitDetails(details) {
@@ -82,15 +117,15 @@ function updateSummary() {
         summaryDiv.innerHTML += `${key}: ${value}<br>`;
     });
 
-    // Calculate Tinkture
+    // Calculate Tincture
     const selectedTwiceButtons = Array.from(document.querySelectorAll('button.selected-twice'));
-    const tinktureCount = selectedTwiceButtons.length;
+    const tinctureCount = selectedTwiceButtons.length;
 
-    let tinktureColor = 'grey';
-    if (tinktureCount === 3) {
-        tinktureColor = 'green';
-    } else if (tinktureCount > 3) {
-        tinktureColor = 'red';
+    let tinctureColor = 'grey';
+    if (tinctureCount === 3) {
+        tinctureColor = 'green';
+    } else if (tinctureCount > 3) {
+        tinctureColor = 'red';
     }
 
     // Calculate potions of memory
@@ -107,10 +142,8 @@ function updateSummary() {
         });
     });
 
-    //console.log("Total Potions:", totalPotions); // Debugging line
-
     // Update the color based on the number of potions
-    let color = 'brown';
+    let color = 'gray';
     if (totalPotions === 8) {
         color = 'green';
     } else if (totalPotions > 8) {
@@ -118,7 +151,20 @@ function updateSummary() {
     }
 
     summaryDiv.innerHTML += `<span style="color:${color};">Memory: ${totalPotions}/8</span>`;
-    summaryDiv.innerHTML += `<br><span style="color:${tinktureColor}">Tinkture: ${tinktureCount}/3</span>`;
+    summaryDiv.innerHTML += `<br><span style="color:${tinctureColor}">Tincture: ${tinctureCount}/3</span>`;
+
+    // Calculate Potion of Oblivion
+    const selectedThriceButtons = Array.from(document.querySelectorAll('button.selected-thrice'));
+    const oblivionCount = selectedThriceButtons.length;
+    let oblivionColor = 'gray';
+    if (oblivionCount === 8) {
+        oblivionColor = 'green';
+    } else if (oblivionCount > 8) {
+        oblivionColor = 'red';
+    }
+
+    summaryDiv.innerHTML += `<br><span style="color:${oblivionColor};">Potion of Oblivion: ${oblivionCount}/8</span>`;
+
     showSummaryModal();
 }
 
@@ -165,6 +211,9 @@ function displayTraits(container, traitsList) {
                             btn.classList.add('selected-twice');
                         } else if (btn.classList.contains('selected-twice')) {
                             btn.classList.remove('selected-twice');
+                            btn.classList.add('selected-thrice')
+                        } else if (btn.classList.contains('selected-thrice')) {
+                            btn.classList.remove('selected-thrice');
                         } else {
                             btn.classList.add('selected');
                         }
@@ -204,7 +253,7 @@ function displayTraits(container, traitsList) {
 
 // Load JSON data on page load
 window.onload = function() {
-    fetch('/static/h_o_t_traits.json')
+    fetch('/static/data/h_o_t_traits.json')
         .then(response => response.json())
         .then(jsonData => {
             data = jsonData;
@@ -227,8 +276,8 @@ async function applyState(state) {
     await new Promise(resolve => setTimeout(resolve, 100));
 
     // Reset all buttons
-    document.querySelectorAll('button.selected, button.selected-twice').forEach(btn => {
-        btn.classList.remove('selected', 'selected-twice');
+    document.querySelectorAll('button.selected, button.selected-twice, button.selected-thrice').forEach(btn => {
+        btn.classList.remove('selected', 'selected-twice', 'selected-thrice');
     });
 
     // Set button states
@@ -285,13 +334,18 @@ function saveState(stateName = null) {
         buttons: []
     };
 
-    const selectedButtons = document.querySelectorAll('button.selected, button.selected-twice');
+    const selectedButtons = document.querySelectorAll('button.selected, button.selected-twice, button.selected-thrice');
     selectedButtons.forEach(btn => {
         const traitName = btn.innerText.split('\n')[0];
         const traitType = btn.getAttribute('data-type'); // Get the trait type (e.g., "Weapon Proficiency")
         const traitClass = btn.closest('.trait-type').parentNode.id; // Get the parent container's ID to determine the class (e.g., "traitsPanel1" or "traitsPanel2")
         const level = btn.getAttribute('data-level');
-        const status = btn.classList.contains('selected-twice') ? 'selected-twice' : 'selected';
+        let status = 'selected';
+        if (btn.classList.contains('selected-twice')) {
+            status = 'selected-twice';
+        } else if (btn.classList.contains('selected-thrice')) {
+            status = 'selected-thrice';
+        }
         state.buttons.push({ traitName, traitType, traitClass, level, status });
     });
 
@@ -334,4 +388,16 @@ function showSummaryModal() {
 
 function hideSummaryModal() {
     document.getElementById('summaryModal').style.display = 'none';
+}
+
+function loadAbilityTraits() {
+    fetch('/ability_traits') // Use the Flask route to serve the ability_traits.html template
+        .then(response => response.text())
+        .then(html => {
+            const abilityTraitsContainer = document.getElementById('abilityTraitsContainer');
+            abilityTraitsContainer.innerHTML = html;
+        })
+        .catch(error => {
+            console.error('Error loading ability_traits.html:', error);
+        });
 }

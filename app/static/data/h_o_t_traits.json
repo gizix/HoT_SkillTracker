@@ -41,47 +41,28 @@
                     "Firerate": {
                         "Attack Speed (Ability)": "+15%"
                     },
-                    "Sharpness": {
-                        "Damage (Ability)": "+20%"
-                    },
                     "Spin": {
                         "Base Crit Bonus (Ability)": "+0.1"
-                    },
-                    "Puncture": {
-                        "Force (Ability)": "+25%",
-                        "Range (Ability)": "+25%"
-                    },
-                    "Pinpoint": {
-                        "Crit Chance (Ability)": "+50%"
-                    },
-                    "Power": {
-                        "Damage (Ability)": "+8"
                     }
                 },
                 "II": {
                     "Firerate": {
                         "Attack Speed (Ability)": "+15%"
                     },
-                    "Sharpness": {
-                        "Damage (Ability)": "+20%"
-                    },
                     "Puncture": {
                         "Force (Ability)": "+25%",
                         "Range (Ability)": "+25%"
                     },
-                    "Spin": {
-                        "Base Crit Bonus (Ability)": "+0.1"
+                    "Sharpness": {
+                        "Damage (Ability)": "+20%"
                     }
                 },
                 "III": {
+                    "Sharpness": {
+                        "Damage (Ability)": "+20%"
+                    },
                     "Spin": {
                         "Base Crit Bonus (Ability)": "+0.1"
-                    },
-                    "Power": {
-                        "Damage (Ability)": "+8"
-                    },
-                    "Pinpoint": {
-                        "Crit Chance (Ability)": "+50%"
                     }
                 },
                 "IV": {
@@ -99,11 +80,20 @@
                     },
                     "Sharpness": {
                         "Damage (Ability)": "+20%"
+                    },
+                    "Spin": {
+                        "Base Crit Bonus (Ability)": "+0.1"
                     }
                 },
                 "VI": {
-                    "Spin": {
-                        "Base Crit Bonus (Ability)": "+0.1"
+                    "Sharpness": {
+                        "Damage (Ability)": "+20%"
+                    },
+                    "Pinpoint": {
+                        "Crit Chance (Ability)": "+50%"
+                    },
+                    "Power": {
+                        "Damage (Ability)": "+8"
                     },
                     "Puncture": {
                         "Force (Ability)": "+25%",
@@ -114,27 +104,43 @@
                     "Firerate": {
                         "Attack Speed (Ability)": "+15%"
                     },
-                    "Sharpness": {
-                        "Damage (Ability)": "+20%"
+                    "Spin": {
+                        "Base Crit Bonus (Ability)": "+0.1"
                     }
                 },
                 "VIII": {
+                    "Firerate": {
+                        "Attack Speed (Ability)": "+15%"
+                    },
                     "Puncture": {
                         "Force (Ability)": "+25%",
                         "Range (Ability)": "+25%"
                     },
-                    "Power": {
-                        "Damage (Ability)": "+8"
+                    "Sharpness": {
+                        "Damage (Ability)": "+20%"
                     }
                 },
                 "IX": {
-                    "Pinpoint": {
-                        "Crit Chance (Ability)": "+50%"
+                    "Sharpness": {
+                        "Damage (Ability)": "+40%"
+                    },
+                    "Spin": {
+                        "Base Crit Bonus (Ability)": "+0.2"
                     }
                 },
                 "X": {
                     "Firerate": {
-                        "Attack Speed (Ability)": "+15%"
+                        "Attack Speed (Ability)": "+30%"
+                    },
+                    "Pinpoint": {
+                        "Crit Chance (Ability)": "+50%"
+                    },
+                    "Power": {
+                        "Damage (Ability)": "+8"
+                    },
+                    "Puncture": {
+                        "Force (Ability)": "+50%",
+                        "Range (Ability)": "+50%"
                     }
                 }
             },
@@ -576,7 +582,7 @@
             },
             {
                 "name": "Frost Avalanche",
-                "type": "Unknown",
+                "type": "Ice, Projectile, Elemental, Frost",
                 "I": {
                     "Frost": {
                         "Frost Chance (Ability)": "+20%"
@@ -675,39 +681,890 @@
             },
             {
                 "name": "Ring Blades",
-                "effect": "Physical, Projectile, Melee"
+                "type": "Physical, Projectile, Melee",
+                "I": {
+                    "Ripping": {
+                        "Area (Ability)": "+10%"
+                    },
+                    "Strong": {
+                        "Damage (Ability)": "+25%",
+                        "Cone Size (Ability)": "+10%"
+                    }
+                },
+                "II": {
+                    "Ripping": {
+                        "Area (Ability)": "+10%"
+                    },
+                    "Big": {
+                        "Blade Size (Ability)": "+10%",
+                        "Damage (Ability)": "+15%"
+                    },
+                    "Fast": {
+                        "Attack Speed (Ability)": "+18%",
+                        "Cone Size (Ability)": "+10%"
+                    }
+                },
+                "IV": {
+                    "Ripping": {
+                        "Area (Ability)": "+10%"
+                    },
+                    "Fast": {
+                        "Attack Speed (Ability)": "+18%",
+                        "Cone Size (Ability)": "+10%"
+                    }
+                },
+                "V": {
+                    "Ripping": {
+                        "Area (Ability)": "+10%"
+                    },
+                    "Big": {
+                        "Blade Size (Ability)": "+10%",
+                        "Damage (Ability)": "+15%"
+                    },
+                    "Strong": {
+                        "Damage (Ability)": "+25%",
+                        "Cone Size (Ability)": "+10%"
+                    }
+                },
+                "VII": {
+                    "Ripping": {
+                        "Area (Ability)": "+10%"
+                    },
+                    "Strong": {
+                        "Damage (Ability)": "+25%",
+                        "Cone Size (Ability)": "+10%"
+                    }
+                },
+                "VIII": {
+                    "Ripping": {
+                        "Area (Ability)": "+10%"
+                    },
+                    "Big": {
+                        "Blade Size (Ability)": "+10%",
+                        "Damage (Ability)": "+15%"
+                    },
+                    "Fast": {
+                        "Attack Speed (Ability)": "+18%",
+                        "Cone Size (Ability)": "+10%"
+                    }
+                },
+                "III": {
+                    "Big": {
+                        "Blade Size (Ability)": "+10%",
+                        "Damage (Ability)": "+15%"
+                    },
+                    "Strong": {
+                        "Damage (Ability)": "+25%",
+                        "Cone Size (Ability)": "+10%"
+                    },
+                    "Cruel": {},
+                    "Reaching": {
+                        "Range (Ability)": "+40%"
+                    }
+                },
+                "VI": {
+                    "Big": {
+                        "Blade Size (Ability)": "+10%",
+                        "Damage (Ability)": "+15%"
+                    },
+                    "Fast": {
+                        "Attack Speed (Ability)": "+18%",
+                        "Cone Size (Ability)": "+10%"
+                    },
+                    "Cruel": {},
+                    "Reaching": {
+                        "Range (Ability)": "+40%"
+                    }
+                },
+                "X": {
+                    "Cruel": {},
+                    "Reaching": {
+                        "Range (Ability)": "+40%"
+                    }
+                }
             },
             {
                 "name": "Transfixion",
-                "effect": "Magic, Projectile, Fragile"
+                "type": "Magic, Projectile, Fragile",
+                "I": {
+                    "Spread": {
+                        "Multistrike (Ability)": "+15%",
+                        "Area (Ability)": "+10%"
+                    },
+                    "Effectivity": {
+                        "Effect on Hit Chance (Ability)": "+25%"
+                    }
+                },
+                "II": {
+                    "Spread": {
+                        "Multistrike (Ability)": "+15%",
+                        "Area (Ability)": "+10%"
+                    },
+                    "Cadence": {
+                        "Attack Speed (Ability)": "+15%"
+                    },
+                    "Accuracy": {
+                        "Crit Chance (Ability)": "+20%",
+                        "Crit Bonus (Ability)": "+20%"
+                    }
+                },
+                "IV": {
+                    "Spread": {
+                        "Multistrike (Ability)": "+15%",
+                        "Area (Ability)": "+10%"
+                    },
+                    "Accuracy": {
+                        "Crit Chance (Ability)": "+20%",
+                        "Crit Bonus (Ability)": "+20%"
+                    }
+                },
+                "V": {
+                    "Spread": {
+                        "Multistrike (Ability)": "+15%",
+                        "Area (Ability)": "+10%"
+                    },
+                    "Cadence": {
+                        "Attack Speed (Ability)": "+15%"
+                    },
+                    "Effectivity": {
+                        "Effect on Hit Chance (Ability)": "+25%"
+                    }
+                },
+                "VII": {
+                    "Spread": {
+                        "Multistrike (Ability)": "+15%",
+                        "Area (Ability)": "+10%"
+                    },
+                    "Effectivity": {
+                        "Effect on Hit Chance (Ability)": "+25%"
+                    }
+                },
+                "VIII": {
+                    "Spread": {
+                        "Multistrike (Ability)": "+15%",
+                        "Area (Ability)": "+10%"
+                    },
+                    "Cadence": {
+                        "Attack Speed (Ability)": "+15%"
+                    },
+                    "Accuracy": {
+                        "Crit Chance (Ability)": "+20%",
+                        "Crit Bonus (Ability)": "+20%"
+                    }
+                },
+                "III": {
+                    "Cadence": {
+                        "Attack Speed (Ability)": "+15%"
+                    },
+                    "Effectivity": {
+                        "Effect on Hit Chance (Ability)": "+25%"
+                    },
+                    "Deadliness": {
+                        "Range (Ability)": "+20%"
+                    },
+                    "Potency": {}
+                },
+                "VI": {
+                    "Cadence": {
+                        "Attack Speed (Ability)": "+15%"
+                    },
+                    "Accuracy": {
+                        "Crit Chance (Ability)": "+20%",
+                        "Crit Bonus (Ability)": "+20%"
+                    },
+                    "Deadliness": {
+                        "Range (Ability)": "+20%"
+                    },
+                    "Potency": {}
+                },
+                "X": {
+                    "Deadliness": {
+                        "Range (Ability)": "+20%"
+                    },
+                    "Potency": {}
+                }
             },
             {
                 "name": "Dragon's Breath",
-                "effect": "Fire, Elemental, Area"
+                "type": "Fire, Elemental, Area",
+                "I": {
+                    "Coverage": {
+                        "Multistrike (Ability)": "+5%",
+                        "Area (Ability)": "+15%"
+                    },
+                    "Flammability": {
+                        "Burn Chance (Ability)": "+20%"
+                    }
+                },
+                "II": {
+                    "Coverage": {
+                        "Multistrike (Ability)": "+5%",
+                        "Area (Ability)": "+15%"
+                    },
+                    "Reach": {
+                        "Range (Ability)": "+15%",
+                        "Area (Ability)": "+10%"
+                    },
+                    "Recovery": {
+                        "Attack Speed (Ability)": "+12%"
+                    }
+                },
+                "IV": {
+                    "Coverage": {
+                        "Multistrike (Ability)": "+5%",
+                        "Area (Ability)": "+15%"
+                    },
+                    "Recovery": {
+                        "Attack Speed (Ability)": "+12%"
+                    }
+                },
+                "V": {
+                    "Coverage": {
+                        "Multistrike (Ability)": "+5%",
+                        "Area (Ability)": "+15%"
+                    },
+                    "Reach": {
+                        "Range (Ability)": "+15%",
+                        "Area (Ability)": "+10%"
+                    },
+                    "Flammability": {
+                        "Burn Chance (Ability)": "+20%"
+                    }
+                },
+                "VII": {
+                    "Coverage": {
+                        "Multistrike (Ability)": "+5%",
+                        "Area (Ability)": "+15%"
+                    },
+                    "Flammability": {
+                        "Burn Chance (Ability)": "+20%"
+                    }
+                },
+                "VIII": {
+                    "Coverage": {
+                        "Multistrike (Ability)": "+5%",
+                        "Area (Ability)": "+15%"
+                    },
+                    "Reach": {
+                        "Range (Ability)": "+15%",
+                        "Area (Ability)": "+10%"
+                    },
+                    "Recovery": {
+                        "Attack Speed (Ability)": "+12%"
+                    }
+                },
+                "III": {
+                    "Reach": {
+                        "Range (Ability)": "+15%",
+                        "Area (Ability)": "+10%"
+                    },
+                    "Flammability": {
+                        "Burn Chance (Ability)": "+20%"
+                    },
+                    "Agony": {
+                        "Base Attack Speed (Ability)-10 Base Damage (Ability)": "+12%"
+                    },
+                    "Incineration": {}
+                },
+                "VI": {
+                    "Reach": {
+                        "Range (Ability)": "+15%",
+                        "Area (Ability)": "+10%"
+                    },
+                    "Recovery": {
+                        "Attack Speed (Ability)": "+12%"
+                    },
+                    "Agony": {
+                        "Base Attack Speed (Ability)-10 Base Damage (Ability)": "+12%"
+                    },
+                    "Incineration": {}
+                },
+                "X": {
+                    "Agony": {
+                        "Base Attack Speed (Ability)-10 Base Damage (Ability)": "+12%"
+                    },
+                    "Incineration": {}
+                }
             },
             {
                 "name": "Radiant Aura",
-                "effect": "Magic, Area"
+                "type": "Magic, Area",
+                "I": {
+                    "Focus": {
+                        "Damage (Ability)-10% Area (Ability)": "+35%"
+                    },
+                    "Strength": {
+                        "Area (Ability)": "+20%",
+                        "Total Stacks (Ability)": "+10%"
+                    }
+                },
+                "II": {
+                    "Focus": {
+                        "Damage (Ability)-10% Area (Ability)": "+35%"
+                    },
+                    "Blessing": {
+                        "Damage (Ability)": "+10%",
+                        "Attack Speed (Ability)": "+10%",
+                        "Area (Ability)": "+5%"
+                    },
+                    "Force": {
+                        "Damage (Ability)": "+20%"
+                    }
+                },
+                "IV": {
+                    "Focus": {
+                        "Damage (Ability)-10% Area (Ability)": "+35%"
+                    },
+                    "Force": {
+                        "Damage (Ability)": "+20%"
+                    }
+                },
+                "V": {
+                    "Focus": {
+                        "Damage (Ability)-10% Area (Ability)": "+35%"
+                    },
+                    "Blessing": {
+                        "Damage (Ability)": "+10%",
+                        "Attack Speed (Ability)": "+10%",
+                        "Area (Ability)": "+5%"
+                    },
+                    "Strength": {
+                        "Area (Ability)": "+20%",
+                        "Total Stacks (Ability)": "+10%"
+                    }
+                },
+                "VII": {
+                    "Focus": {
+                        "Damage (Ability)-10% Area (Ability)": "+35%"
+                    },
+                    "Strength": {
+                        "Area (Ability)": "+20%",
+                        "Total Stacks (Ability)": "+10%"
+                    }
+                },
+                "VIII": {
+                    "Focus": {
+                        "Damage (Ability)-10% Area (Ability)": "+35%"
+                    },
+                    "Blessing": {
+                        "Damage (Ability)": "+10%",
+                        "Attack Speed (Ability)": "+10%",
+                        "Area (Ability)": "+5%"
+                    },
+                    "Force": {
+                        "Damage (Ability)": "+20%"
+                    }
+                },
+                "III": {
+                    "Blessing": {
+                        "Damage (Ability)": "+10%",
+                        "Attack Speed (Ability)": "+10%",
+                        "Area (Ability)": "+5%"
+                    },
+                    "Strength": {
+                        "Area (Ability)": "+20%",
+                        "Total Stacks (Ability)": "+10%"
+                    },
+                    "Haste": {},
+                    "Might": {}
+                },
+                "VI": {
+                    "Blessing": {
+                        "Damage (Ability)": "+10%",
+                        "Attack Speed (Ability)": "+10%",
+                        "Area (Ability)": "+5%"
+                    },
+                    "Force": {
+                        "Damage (Ability)": "+20%"
+                    },
+                    "Haste": {},
+                    "Might": {}
+                },
+                "X": {
+                    "Haste": {},
+                    "Might": {}
+                }
             },
             {
                 "name": "Summon Golem",
-                "effect": "Physical, Melee, Summon"
+                "type": "Physical, Melee, Summon",
+                "I": {
+                    "Inertia": {
+                        "Roll Duration (Ability)": "+20%"
+                    },
+                    "Adjustment": {
+                        "Crit Chance (Ability)": "+40%"
+                    }
+                },
+                "II": {
+                    "Inertia": {
+                        "Roll Duration (Ability)": "+20%"
+                    },
+                    "Acceleration": {
+                        "Attack Speed (Ability)": "+20%"
+                    },
+                    "Power": {
+                        "Damage (Ability)": "+20%"
+                    }
+                },
+                "IV": {
+                    "Inertia": {
+                        "Roll Duration (Ability)": "+20%"
+                    },
+                    "Power": {
+                        "Damage (Ability)": "+20%"
+                    }
+                },
+                "V": {
+                    "Inertia": {
+                        "Roll Duration (Ability)": "+20%"
+                    },
+                    "Acceleration": {
+                        "Attack Speed (Ability)": "+20%"
+                    },
+                    "Adjustment": {
+                        "Crit Chance (Ability)": "+40%"
+                    }
+                },
+                "VII": {
+                    "Inertia": {
+                        "Roll Duration (Ability)": "+20%"
+                    },
+                    "Adjustment": {
+                        "Crit Chance (Ability)": "+40%"
+                    }
+                },
+                "VIII": {
+                    "Inertia": {
+                        "Roll Duration (Ability)": "+20%"
+                    },
+                    "Acceleration": {
+                        "Attack Speed (Ability)": "+20%"
+                    },
+                    "Power": {
+                        "Damage (Ability)": "+20%"
+                    }
+                },
+                "III": {
+                    "Acceleration": {
+                        "Attack Speed (Ability)": "+20%"
+                    },
+                    "Adjustment": {
+                        "Crit Chance (Ability)": "+40%"
+                    },
+                    "Devastation": {
+                        "Attack Range (Ability)": "+10%",
+                        "Attack Area (Ability)": "+10%"
+                    },
+                    "Inexorable": {
+                        "Movement Speed (Ability)": "+10%"
+                    }
+                },
+                "VI": {
+                    "Acceleration": {
+                        "Attack Speed (Ability)": "+20%"
+                    },
+                    "Power": {
+                        "Damage (Ability)": "+20%"
+                    },
+                    "Devastation": {
+                        "Attack Range (Ability)": "+10%",
+                        "Attack Area (Ability)": "+10%"
+                    },
+                    "Inexorable": {
+                        "Movement Speed (Ability)": "+10%"
+                    }
+                },
+                "X": {
+                    "Devastation": {
+                        "Attack Range (Ability)": "+10%",
+                        "Attack Area (Ability)": "+10%"
+                    },
+                    "Inexorable": {
+                        "Movement Speed (Ability)": "+10%"
+                    }
+                }
             },
             {
                 "name": "Meteor Strike",
-                "effect": "Fire, Elemental, Projectile, Area"
+                "type": "Fire, Elemental, Projectile, Area",
+                "I": {
+                    "Blast": {
+                        "Area (Ability)": "+30%"
+                    },
+                    "Frequency": {
+                        "Attack Speed (Ability)": "+15%"
+                    }
+                },
+                "II": {
+                    "Blast": {
+                        "Area (Ability)": "+30%"
+                    },
+                    "Impact": {
+                        "Damage (Ability)": "+20%"
+                    },
+                    "Heat": {
+                        "Crit Chance (Ability)": "+30%"
+                    }
+                },
+                "IV": {
+                    "Blast": {
+                        "Area (Ability)": "+30%"
+                    },
+                    "Heat": {
+                        "Crit Chance (Ability)": "+30%"
+                    }
+                },
+                "V": {
+                    "Blast": {
+                        "Area (Ability)": "+30%"
+                    },
+                    "Impact": {
+                        "Damage (Ability)": "+20%"
+                    },
+                    "Frequency": {
+                        "Attack Speed (Ability)": "+15%"
+                    }
+                },
+                "VII": {
+                    "Blast": {
+                        "Area (Ability)": "+30%"
+                    },
+                    "Frequency": {
+                        "Attack Speed (Ability)": "+15%"
+                    }
+                },
+                "VIII": {
+                    "Blast": {
+                        "Area (Ability)": "+30%"
+                    },
+                    "Impact": {
+                        "Damage (Ability)": "+20%"
+                    },
+                    "Heat": {
+                        "Crit Chance (Ability)": "+30%"
+                    }
+                },
+                "III": {
+                    "Impact": {
+                        "Damage (Ability)": "+20%"
+                    },
+                    "Frequency": {
+                        "Attack Speed (Ability)": "+15%"
+                    },
+                    "Fusion": {},
+                    "Shower": {
+                        "Multistrike (Ability)-20 Base Damage (Ability)-30% Area (Ability)": "+50%"
+                    }
+                },
+                "VI": {
+                    "Impact": {
+                        "Damage (Ability)": "+20%"
+                    },
+                    "Heat": {
+                        "Crit Chance (Ability)": "+30%"
+                    },
+                    "Fusion": {},
+                    "Shower": {
+                        "Multistrike (Ability)-20 Base Damage (Ability)-30% Area (Ability)": "+50%"
+                    }
+                },
+                "X": {
+                    "Fusion": {},
+                    "Shower": {
+                        "Multistrike (Ability)-20 Base Damage (Ability)-30% Area (Ability)": "+50%"
+                    }
+                }
             },
             {
                 "name": "Kugelblitz",
-                "effect": "Lightning, Elemental, Projectile, Area"
+                "type": "Lightning, Elemental, Projectile, Area",
+                "I": {
+                    "Capacity": {
+                        "Attack Speed (Ability)": "+15%"
+                    },
+                    "Voltage": {
+                        "Electrify Chance (Ability)": "+20%"
+                    }
+                },
+                "II": {
+                    "Capacity": {
+                        "Attack Speed (Ability)": "+15%"
+                    },
+                    "Current": {},
+                    "Discharge": {
+                        "Area (Ability)": "+20%"
+                    }
+                },
+                "IV": {
+                    "Capacity": {
+                        "Attack Speed (Ability)": "+15%"
+                    },
+                    "Discharge": {
+                        "Area (Ability)": "+20%"
+                    }
+                },
+                "V": {
+                    "Capacity": {
+                        "Attack Speed (Ability)": "+15%"
+                    },
+                    "Current": {},
+                    "Voltage": {
+                        "Electrify Chance (Ability)": "+20%"
+                    }
+                },
+                "VII": {
+                    "Capacity": {
+                        "Attack Speed (Ability)": "+15%"
+                    },
+                    "Voltage": {
+                        "Electrify Chance (Ability)": "+20%"
+                    }
+                },
+                "VIII": {
+                    "Capacity": {
+                        "Attack Speed (Ability)": "+15%"
+                    },
+                    "Current": {},
+                    "Discharge": {
+                        "Area (Ability)": "+20%"
+                    }
+                },
+                "III": {
+                    "Current": {},
+                    "Voltage": {
+                        "Electrify Chance (Ability)": "+20%"
+                    },
+                    "Peak": {
+                        "Crit Chance (Ability)": "+100%"
+                    },
+                    "Resistance": {
+                        "More Shockwaves (Ability)": "+20%",
+                        "Force (Ability)-20% Movement Speed (Ability)": "+20%"
+                    }
+                },
+                "VI": {
+                    "Current": {},
+                    "Discharge": {
+                        "Area (Ability)": "+20%"
+                    },
+                    "Peak": {
+                        "Crit Chance (Ability)": "+100%"
+                    },
+                    "Resistance": {
+                        "More Shockwaves (Ability)": "+20%",
+                        "Force (Ability)-20% Movement Speed (Ability)": "+20%"
+                    }
+                },
+                "X": {
+                    "Peak": {
+                        "Crit Chance (Ability)": "+100%"
+                    },
+                    "Resistance": {
+                        "More Shockwaves (Ability)": "+20%",
+                        "Force (Ability)-20% Movement Speed (Ability)": "+20%"
+                    }
+                }
             },
             {
                 "name": "Arcane Rift",
-                "effect": "Magic, Area"
+                "type": "Magic, Area",
+                "I": {
+                    "Blast": {
+                        "Area (Ability)": "+10%",
+                        "Damage (Ability)": "+10%"
+                    },
+                    "Concentrate": {
+                        "Damage (Ability)": "+20%",
+                        "Crit Chance (Ability)-10% Area (Ability)": "+5%"
+                    }
+                },
+                "II": {
+                    "Blast": {
+                        "Area (Ability)": "+10%",
+                        "Damage (Ability)": "+10%"
+                    },
+                    "Frequency": {
+                        "Multistrike (Ability)-10% Damage (Ability)": "+20%"
+                    },
+                    "Occurence": {
+                        "Multistrike (Ability)": "+10%",
+                        "Attackspeed (Ability)": "+10%"
+                    }
+                },
+                "IV": {
+                    "Blast": {
+                        "Area (Ability)": "+10%",
+                        "Damage (Ability)": "+10%"
+                    },
+                    "Frequency": {
+                        "Multistrike (Ability)-10% Damage (Ability)": "+20%"
+                    }
+                },
+                "V": {
+                    "Blast": {
+                        "Area (Ability)": "+10%",
+                        "Damage (Ability)": "+10%"
+                    },
+                    "Concentrate": {
+                        "Damage (Ability)": "+20%",
+                        "Crit Chance (Ability)-10% Area (Ability)": "+5%"
+                    },
+                    "Occurence": {
+                        "Multistrike (Ability)": "+10%",
+                        "Attackspeed (Ability)": "+10%"
+                    }
+                },
+                "VII": {
+                    "Blast": {
+                        "Area (Ability)": "+10%",
+                        "Damage (Ability)": "+10%"
+                    },
+                    "Concentrate": {
+                        "Damage (Ability)": "+20%",
+                        "Crit Chance (Ability)-10% Area (Ability)": "+5%"
+                    }
+                },
+                "VIII": {
+                    "Blast": {
+                        "Area (Ability)": "+10%",
+                        "Damage (Ability)": "+10%"
+                    },
+                    "Frequency": {
+                        "Multistrike (Ability)-10% Damage (Ability)": "+20%"
+                    },
+                    "Occurence": {
+                        "Multistrike (Ability)": "+10%",
+                        "Attackspeed (Ability)": "+10%"
+                    }
+                },
+                "III": {
+                    "Concentrate": {
+                        "Damage (Ability)": "+20%",
+                        "Crit Chance (Ability)-10% Area (Ability)": "+5%"
+                    },
+                    "Occurence": {
+                        "Multistrike (Ability)": "+10%",
+                        "Attackspeed (Ability)": "+10%"
+                    },
+                    "Bloat": {
+                        "Area (Ability)": "+30%",
+                        "Duration (Ability)-15% Damage (Ability)": "+20%"
+                    },
+                    "Scatter": {
+                        "Area (Ability)": "-30%"
+                    }
+                },
+                "VI": {
+                    "Frequency": {
+                        "Multistrike (Ability)-10% Damage (Ability)": "+20%"
+                    },
+                    "Occurence": {
+                        "Multistrike (Ability)": "+10%",
+                        "Attackspeed (Ability)": "+10%"
+                    },
+                    "Bloat": {
+                        "Area (Ability)": "+30%",
+                        "Duration (Ability)-15% Damage (Ability)": "+20%"
+                    },
+                    "Scatter": {
+                        "Area (Ability)": "-30%"
+                    }
+                },
+                "X": {
+                    "Bloat": {
+                        "Area (Ability)": "+30%",
+                        "Duration (Ability)-15% Damage (Ability)": "+20%"
+                    },
+                    "Scatter": {
+                        "Area (Ability)": "-30%"
+                    }
+                }
             },
             {
                 "name": "Spirit Warrior",
-                "effect": "Summon, Melee, Physical"
+                "type": "Physical, Summon, Melee",
+                "I": {
+                    "Strength": {
+                        "Damage (Ability)": "+20%"
+                    },
+                    "Ruthless": {
+                        "Crit Bonus (Ability)": "+30%"
+                    }
+                },
+                "II": {
+                    "Strength": {
+                        "Damage (Ability)": "+20%"
+                    },
+                    "Cunning": {},
+                    "Coverage": {
+                        "Area (Ability)": "+20%",
+                        "Range (Ability)": "+10%"
+                    }
+                },
+                "IV": {
+                    "Strength": {
+                        "Damage (Ability)": "+20%"
+                    },
+                    "Coverage": {
+                        "Area (Ability)": "+20%",
+                        "Range (Ability)": "+10%"
+                    }
+                },
+                "V": {
+                    "Strength": {
+                        "Damage (Ability)": "+20%"
+                    },
+                    "Cunning": {},
+                    "Ruthless": {
+                        "Crit Bonus (Ability)": "+30%"
+                    }
+                },
+                "VII": {
+                    "Strength": {
+                        "Damage (Ability)": "+20%"
+                    },
+                    "Ruthless": {
+                        "Crit Bonus (Ability)": "+30%"
+                    }
+                },
+                "VIII": {
+                    "Strength": {
+                        "Damage (Ability)": "+20%"
+                    },
+                    "Cunning": {},
+                    "Coverage": {
+                        "Area (Ability)": "+20%",
+                        "Range (Ability)": "+10%"
+                    }
+                },
+                "III": {
+                    "Cunning": {},
+                    "Ruthless": {
+                        "Crit Bonus (Ability)": "+30%"
+                    },
+                    "Dashing": {
+                        "Dash Range (Ability)": "+20%"
+                    },
+                    "Swift": {}
+                },
+                "VI": {
+                    "Cunning": {},
+                    "Coverage": {
+                        "Area (Ability)": "+20%",
+                        "Range (Ability)": "+10%"
+                    },
+                    "Dashing": {
+                        "Dash Range (Ability)": "+20%"
+                    },
+                    "Swift": {}
+                },
+                "X": {
+                    "Dashing": {
+                        "Dash Range (Ability)": "+20%"
+                    },
+                    "Swift": {}
+                }
             }
         ]
     },

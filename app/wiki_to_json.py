@@ -6,6 +6,8 @@ from bs4 import BeautifulSoup
 from utils.progress_bar_decorator import progress_bar_decorator
 from utils import int_to_roman
 
+"""This is a script for scraping the source wiki html and gathering the ability data."""
+
 
 def fetch_html(url):
     response = requests.get(url)
@@ -31,17 +33,21 @@ def html_to_json(html, ability_name):
     ability_section = ability_header.find_next('table')
     rows = ability_section.find_all('tr')[1:]  # Skip header row
 
-    # Extracting the type from the row following the ability name
-    type_row = ability_header.find_next('tr')
+    # Extracting the type from the first row of the table
+    type_row = ability_section.find('tr')
     type_columns = type_row.find_all('td')
-    ability_type = type_columns[2].get_text(strip=True) if len(type_columns) > 2 else "Unknown"
+    type_text = type_columns[1].find('div').find('span').get_text(strip=True)
+
+    # Clean up the type text to remove the ability name
+    cleaned_type = type_text.replace(ability_name, '').strip()
 
     ability_data = {
         "name": ability_name,
-        "type": ability_type,
+        "type": cleaned_type,
     }
 
-    for row in rows:
+    # Process the remaining rows for ability details
+    for row in rows[1:]:
         columns = row.find_all('td')
         if len(columns) < 4:
             continue  # Skip rows with insufficient columns
@@ -97,10 +103,10 @@ def main():
     file_path = "static/source.html"
     html = read_html_from_file(file_path)
     if html:
-        ability_name = "Frost Avalanche"  # Hardcoded for now
+        ability_name = "Spirit Warrior"  # Hardcoded for now
         json_data = html_to_json(html, ability_name)
         if json_data:
-            update_json_file("static/h_o_t_traits.json", json_data)
+            update_json_file("static/data/h_o_t_traits.json", json_data)
         else:
             print("Ability not found in the HTML.")
     else:

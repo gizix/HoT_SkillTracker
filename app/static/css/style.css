@@ -19,6 +19,14 @@ body {
     gap: 10px;
 }
 
+#abilitySelectionContainer {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    width: 25%;
+    gap: 10px;
+}
+
 .dropdowns {
     display: flex;
     justify-content: space-between;
@@ -309,6 +317,10 @@ button.selected {
     background-color: grey;
 }
 
+.level button.selected-thrice {
+    background-color: darkred;
+}
+
 .level button.checked::after {
     content: '';
     position: absolute;
@@ -316,7 +328,7 @@ button.selected {
     left: 10px;
     width: 52px;  /* Adjust width and height based on the size of your image */
     height: 48px;
-    background-image: url('green_check.png');
+    background-image: url('../images/green_check.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -400,4 +412,43 @@ button.selected {
     height: 150px; /* or whatever height you want */
     background-color: #f0f0f0; /* a light gray color */
     margin: 5px 0; /* some margin to separate it from other buttons */
+}
+
+/* Color Legend Styles */
+.color-legend {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.color-legend-item {
+    margin: 5px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.yellow {
+    background-color: yellow;
+    padding: 5px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.gray {
+    background-color: gray;
+    padding: 5px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.darkred {
+    background-color: darkred;
+    padding: 5px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.ability-trait-button {
+    position: relative;
 }

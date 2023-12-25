@@ -1,7 +1,8 @@
 # HoT_SkillTracker
 
 ## About
-This application is a skill tracker for the game "Halls of Torment", facilitating build tracking.
+This application is a skill tracker for the game "Halls of Torment".
+It provides an easy-to-use interface to track skills and builds in the game.
 
 ## Installation with Poetry
 1. Clone the repository: `git clone https://github.com/gizix/HoT_SkillTracker.git`
