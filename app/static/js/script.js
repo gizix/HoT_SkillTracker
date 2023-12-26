@@ -138,6 +138,10 @@ function updateSummary() {
         });
     });
 
+    // Calculate potions of memory for ability traits
+    const abilityMemoryPotions = calculateMemoryPotionsForAbilityTraits();
+    totalPotions += abilityMemoryPotions;
+
     // Update the color based on the number of potions
     let color = 'gray';
     if (totalPotions === 8) {
@@ -403,32 +407,60 @@ function loadAbilityTraits() {
 function reapplyEventListeners() {
     const abilityTraitsContainer = document.getElementById('abilityTraitsContainer');
     const buttons = abilityTraitsContainer.querySelectorAll('button');
+    const abilityDropdown = document.getElementById('abilityDropdown');
 
     buttons.forEach(button => {
-        // Assuming the click event logic is similar to this
-        button.addEventListener('click', function() {
-            if (button.classList.contains('selected')) {
-                button.classList.remove('selected');
-                button.classList.add('selected-twice');
-            } else if (button.classList.contains('selected-twice')) {
-                button.classList.remove('selected-twice');
-                button.classList.add('selected-thrice');
-            } else if (button.classList.contains('selected-thrice')) {
-                button.classList.remove('selected-thrice');
-            } else {
-                button.classList.add('selected');
-            }
-            updateSummary(); // Update summary if required
-        });
+        if (button.classList.contains('drop-ability-button')) {
+            // Event listener for drop-ability-button
+            button.addEventListener('click', function() {
+                const row = button.closest('.ability-traits-row');
+                const abilityName = row.querySelector('h3').textContent;
 
-        // Add any other event listeners required for these buttons
-        button.oncontextmenu = function(event) {
-            event.preventDefault();
-            if (button.classList.contains('checked')) {
-                button.classList.remove('checked');
-            } else {
-                button.classList.add('checked');
-            }
-        };
+                row.remove(); // Remove the row
+
+                // Re-add the ability to the dropdown and reorder it alphabetically
+                const option = document.createElement('option');
+                option.value = abilityName;
+                option.textContent = abilityName;
+                abilityDropdown.appendChild(option);
+                reorderDropdown(abilityDropdown);
+            });
+        } else {
+            // Assuming the click event logic is similar to this
+            button.addEventListener('click', function() {
+                if (button.classList.contains('selected')) {
+                    button.classList.remove('selected');
+                    button.classList.add('selected-twice');
+                } else if (button.classList.contains('selected-twice')) {
+                    button.classList.remove('selected-twice');
+                    button.classList.add('selected-thrice');
+                } else if (button.classList.contains('selected-thrice')) {
+                    button.classList.remove('selected-thrice');
+                } else {
+                    button.classList.add('selected');
+                }
+                updateSummary();
+            });
+
+            // Add any other event listeners required for these buttons
+            button.oncontextmenu = function(event) {
+                event.preventDefault();
+                if (button.classList.contains('checked')) {
+                    button.classList.remove('checked');
+                } else {
+                    button.classList.add('checked');
+                }
+            };
+
+            updateSummary(); // Update summary if required
+        }
     });
+}
+
+// Function to reorder the dropdown alphabetically
+function reorderDropdown(dropdown) {
+    const options = Array.from(dropdown.querySelectorAll('option:not([value=""])'));
+    options.sort((a, b) => a.textContent.localeCompare(b.textContent));
+
+    options.forEach(option => dropdown.appendChild(option));
 }

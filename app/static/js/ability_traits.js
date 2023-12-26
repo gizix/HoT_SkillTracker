@@ -84,6 +84,7 @@ function loadColumns() {
                 row.remove();
                 availableAbilities.push(selectedAbility);
                 updateAbilityDropdown();
+                reorderDropdown(abilityDropdown);
             });
             row.appendChild(dropButton);
 
@@ -186,6 +187,7 @@ function toggleTraitButtonState(button) {
     } else {
         button.classList.add('selected');
     }
+    updateSummary();
 }
 
 function toggleTraitButtonCheck(button) {
@@ -200,3 +202,25 @@ function romanize(num) {
     const romanNumerals = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
     return romanNumerals[num - 1];
 }
+
+function calculateMemoryPotionsForAbilityTraits() {
+    let totalMemoryPotions = 0;
+    const abilityLevels = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
+
+    // Iterate over each ability separately
+    const abilityRows = document.querySelectorAll('.ability-traits-columns .ability-traits-row');
+    abilityRows.forEach(row => {
+        const abilityName = row.querySelector('h3').textContent;
+
+        abilityLevels.forEach(level => {
+            const selectedAbilityTraits = row.querySelectorAll(`button[data-level="${level}"].selected, button[data-level="${level}"].selected-twice`);
+
+            if (selectedAbilityTraits.length > 1) {
+                totalMemoryPotions += selectedAbilityTraits.length - 1;
+            }
+        });
+    });
+
+    return totalMemoryPotions;
+}
+
