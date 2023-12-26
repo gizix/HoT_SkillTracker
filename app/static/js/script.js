@@ -1,62 +1,56 @@
 let data = {};
+let savedAbilityTraitsHTML = null;  // Variable to store the HTML content of ability traits
+let isAbilityTraitsLoaded = false;  // Flag to check if the ability traits have been loaded
 
 document.addEventListener('DOMContentLoaded', function() {
-    let loadCloseButton = document.querySelector('#loadModalCloseBtn');
-    let saveCloseButton = document.querySelector('#saveModalCloseBtn');
+    // Event listeners for modal close buttons
+    const loadCloseButton = document.querySelector('#loadModalCloseBtn');
+    const saveCloseButton = document.querySelector('#saveModalCloseBtn');
 
-    if (loadCloseButton) {
-        loadCloseButton.addEventListener('click', function() {
-            document.getElementById('loadStateModal').style.display = 'none';
-        });
-    }
+    loadCloseButton?.addEventListener('click', () => document.getElementById('loadStateModal').style.display = 'none');
+    saveCloseButton?.addEventListener('click', () => document.getElementById('saveStateModal').style.display = 'none');
 
-    if (saveCloseButton) {
-        saveCloseButton.addEventListener('click', function() {
-            document.getElementById('saveStateModal').style.display = 'none';
-        });
-    }
-
+    // Toggle view for ability and class traits
     const switchButton = document.getElementById('switchToAbilityTraits');
 
-    // Function to toggle between views
     function toggleView() {
         const abilityTraitsContainer = document.getElementById('abilityTraitsContainer');
         const panelsContainer = document.getElementById('panelsContainer');
-        const selectionContainer = document.getElementById('selectionContainer')
-        const abilitySelectionContainer = document.getElementById('abilitySelectionContainer')
+        const selectionContainer = document.getElementById('selectionContainer');
+        const abilitySelectionContainer = document.getElementById('abilitySelectionContainer');
 
-
-        if (abilityTraitsContainer.style.display === 'none') {
-            // Switch to Ability Traits view
-            abilityTraitsContainer.style.display = 'block';
+        if (abilityTraitsContainer.style.display === 'flex') {
+            savedAbilityTraitsHTML = abilityTraitsContainer.innerHTML;
+            abilityTraitsContainer.style.display = 'none';
+            panelsContainer.style.display = 'flex';
+            selectionContainer.style.display = 'flex';
+            switchButton.textContent = 'Switch to Ability Traits';
+            abilitySelectionContainer.style.display = 'none';
+        } else if (switchButton.textContent === 'Switch to Ability Traits') {
+            // Check if ability traits have been loaded before restoring
+            if (!isAbilityTraitsLoaded) {
+                loadAbilityTraits();
+                isAbilityTraitsLoaded = true;
+            } else if (savedAbilityTraitsHTML) {
+                abilityTraitsContainer.innerHTML = savedAbilityTraitsHTML;
+            }
+            abilityTraitsContainer.style.display = 'flex';
+            abilitySelectionContainer.style.display = 'flex';
             panelsContainer.style.display = 'none';
             selectionContainer.style.display = 'none';
             switchButton.textContent = 'Switch to Class Traits';
-            abilitySelectionContainer.style.display = 'flex';
-        } else {
-            // Switch to Class Traits view
-            abilityTraitsContainer.style.display = 'none';
-            panelsContainer.style.display = 'flex';
-            selectionContainer.style.display = 'flex'
-            switchButton.textContent = 'Switch to Ability Traits';
-            abilitySelectionContainer.style.display = 'none'
+            updateAbilityDropdown();
+            reapplyEventListeners();
         }
     }
 
     switchButton.addEventListener('click', function() {
-        loadAbilityTraits();
-        toggleView();
+        toggleView(); // Only toggle view, don't load every time
         if (switchButton.textContent === 'Switch to Ability Traits') {
             loadColumns();
         }
     });
 });
-
-function formatTraitDetails(details) {
-    return Object.entries(details)
-        .map(([key, value]) => `${key}: ${value}`)
-        .join('<br>'); // Each ability on its own line
-}
 
 function populateDropdowns() {
     const dropdown1 = document.getElementById('classDropdown1');
@@ -95,20 +89,23 @@ function updateSummary() {
     const selectedButtons = document.querySelectorAll('button.selected, button.selected-twice');
     selectedButtons.forEach(btn => {
         const traitDetails = JSON.parse(btn.getAttribute('data-trait-details'));
-        const multiplier = btn.classList.contains('selected-twice') ? 2 : 1;
-        Object.entries(traitDetails).forEach(([key, value]) => {
-            const numericValue = parseFloat(value);
-            if (summary[key]) {
-                // Add the values and round to two decimal places
-                summary[key] = parseFloat(parseFloat(summary[key]) + (numericValue * multiplier)).toFixed(2);
-            } else {
-                summary[key] = (numericValue * multiplier).toFixed(2);
-            }
-            // Append '%' only if the original value had it
-            if (value.includes('%')) {
-                summary[key] += '%';
-            }
-        });
+
+        if (traitDetails && typeof traitDetails === 'object') {
+            const multiplier = btn.classList.contains('selected-twice') ? 2 : 1;
+            Object.entries(traitDetails).forEach(([key, value]) => {
+                const numericValue = parseFloat(value);
+                if (summary[key]) {
+                    // Add the values and round to two decimal places
+                    summary[key] = parseFloat(parseFloat(summary[key]) + (numericValue * multiplier)).toFixed(2);
+                } else {
+                    summary[key] = (numericValue * multiplier).toFixed(2);
+                }
+                // Append '%' only if the original value had it
+                if (value.includes('%')) {
+                    summary[key] += '%';
+                }
+            });
+        }
     });
 
     const summaryDiv = document.getElementById('summaryText');
@@ -135,7 +132,6 @@ function updateSummary() {
     traitTypes.forEach(type => {
         levels.forEach(level => {
             const traitsOfLevelAndType = document.querySelectorAll(`button[data-level="${level}"][data-type="${type}"].selected, button[data-level="${level}"][data-type="${type}"].selected-twice`);
-            //console.log(`Traits of type ${type} and level ${level}:`, traitsOfLevelAndType.length);
             if (traitsOfLevelAndType.length >= 2) {
                 totalPotions += traitsOfLevelAndType.length - 1;
             }
@@ -187,14 +183,12 @@ function displayTraits(container, traitsList) {
         traitTypeDiv.className = 'trait-type';
         traitTypeDiv.innerHTML = `<h3>${trait.type}</h3>`;
         container.appendChild(traitTypeDiv);
-        //console.log("Working in section:", traitTypeDiv.className); // Debugging for traitTypeDiv class
 
         Object.entries(trait).forEach(([level, details]) => {
             if (level !== 'type') {
                 const levelDiv = document.createElement('div');
                 levelDiv.className = 'level';
                 traitTypeDiv.appendChild(levelDiv);
-                //console.log("Working in subsection:", levelDiv.className); // Debugging for levelDiv class
 
                 Object.entries(details).forEach(([traitName, traitDetails]) => {
                     const btn = document.createElement('button');
@@ -221,14 +215,11 @@ function displayTraits(container, traitsList) {
                     };
                     btn.style.position = 'relative'; // This ensures the ::after pseudo-element is positioned relative to the button
                     btn.oncontextmenu = function(event) {
-                        console.log("Button right-clicked")
                         event.preventDefault(); // Prevent the default context menu from showing up
                         if (btn.classList.contains('checked')) {
                             btn.classList.remove('checked');
-                            console.log("check removed")
                         } else {
                             btn.classList.add('checked');
-                            console.log("check added")
                         }
                     };
 
@@ -236,12 +227,9 @@ function displayTraits(container, traitsList) {
                 });
 
                 const currentButtons = Object.keys(details).length;
-                //console.log("Max buttons for", trait.type, "level", level, ":", maxButtonsPerLevel[level]);
-                //console.log("Current buttons for level", level, ":", currentButtons);
                 const spacersNeeded = maxButtonsPerLevel[level] - currentButtons;
 
                 for (let i = 0; i < spacersNeeded; i++) {
-                    //console.log("Adding spacer for level", level);
                     const spacerDiv = document.createElement('div');
                     spacerDiv.className = 'button spacer';
                     levelDiv.appendChild(spacerDiv);
@@ -265,6 +253,7 @@ window.onload = function() {
 };
 
 async function applyState(state) {
+    console.log('Applying State:', state);
     // Set dropdown values
     document.getElementById('classDropdown1').value = state.dropdown1;
     document.getElementById('classDropdown2').value = state.dropdown2;
@@ -298,6 +287,17 @@ async function applyState(state) {
         }
     });
 
+    // Restore ability traits HTML
+    if (state.abilityTraitsHTML) {
+        savedAbilityTraitsHTML = state.abilityTraitsHTML;
+        const abilityTraitsContainer = document.getElementById('abilityTraitsContainer');
+        if (abilityTraitsContainer.style.display === 'flex') {
+            abilityTraitsContainer.innerHTML = savedAbilityTraitsHTML;
+            reapplyEventListeners();
+        }
+        isAbilityTraitsLoaded = true;
+    }
+
     updateSummary();
 }
 
@@ -328,26 +328,24 @@ function saveState(stateName = null) {
         if (!stateName) return;
     }
 
+    const selectedButtons = document.querySelectorAll('button.selected, button.selected-twice, button.selected-thrice');
+    const buttons = Array.from(selectedButtons).map(btn => {
+        const traitName = btn.innerText.split('\n')[0];
+        const traitType = btn.getAttribute('data-type');
+        const traitClass = btn.closest('.trait-type')?.parentNode?.id || 'unknown';
+        const level = btn.getAttribute('data-level');
+        const status = btn.classList.contains('selected-twice') ? 'selected-twice' : btn.classList.contains('selected-thrice') ? 'selected-thrice' : 'selected';
+        return { traitName, traitType, traitClass, level, status };
+    });
+
     const state = {
         dropdown1: document.getElementById('classDropdown1').value,
         dropdown2: document.getElementById('classDropdown2').value,
-        buttons: []
+        buttons: buttons,
+        abilityTraitsHTML: savedAbilityTraitsHTML
     };
 
-    const selectedButtons = document.querySelectorAll('button.selected, button.selected-twice, button.selected-thrice');
-    selectedButtons.forEach(btn => {
-        const traitName = btn.innerText.split('\n')[0];
-        const traitType = btn.getAttribute('data-type'); // Get the trait type (e.g., "Weapon Proficiency")
-        const traitClass = btn.closest('.trait-type').parentNode.id; // Get the parent container's ID to determine the class (e.g., "traitsPanel1" or "traitsPanel2")
-        const level = btn.getAttribute('data-level');
-        let status = 'selected';
-        if (btn.classList.contains('selected-twice')) {
-            status = 'selected-twice';
-        } else if (btn.classList.contains('selected-thrice')) {
-            status = 'selected-thrice';
-        }
-        state.buttons.push({ traitName, traitType, traitClass, level, status });
-    });
+    console.log('Saving State:', state);
 
     // Save to local storage
     const savedStates = JSON.parse(localStorage.getItem('savedStates') || '{}');
@@ -400,4 +398,37 @@ function loadAbilityTraits() {
         .catch(error => {
             console.error('Error loading ability_traits.html:', error);
         });
+}
+
+function reapplyEventListeners() {
+    const abilityTraitsContainer = document.getElementById('abilityTraitsContainer');
+    const buttons = abilityTraitsContainer.querySelectorAll('button');
+
+    buttons.forEach(button => {
+        // Assuming the click event logic is similar to this
+        button.addEventListener('click', function() {
+            if (button.classList.contains('selected')) {
+                button.classList.remove('selected');
+                button.classList.add('selected-twice');
+            } else if (button.classList.contains('selected-twice')) {
+                button.classList.remove('selected-twice');
+                button.classList.add('selected-thrice');
+            } else if (button.classList.contains('selected-thrice')) {
+                button.classList.remove('selected-thrice');
+            } else {
+                button.classList.add('selected');
+            }
+            updateSummary(); // Update summary if required
+        });
+
+        // Add any other event listeners required for these buttons
+        button.oncontextmenu = function(event) {
+            event.preventDefault();
+            if (button.classList.contains('checked')) {
+                button.classList.remove('checked');
+            } else {
+                button.classList.add('checked');
+            }
+        };
+    });
 }

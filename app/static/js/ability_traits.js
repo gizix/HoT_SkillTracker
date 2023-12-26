@@ -1,43 +1,52 @@
-// ability_traits.js
 
 let abilityTraitsData; // Store the ability traits JSON data
+let availableAbilities = []; // Store available abilities for the dropdown
 
 document.addEventListener('DOMContentLoaded', function () {
     fetch('/static/data/h_o_t_traits.json')
         .then(response => response.json())
         .then(jsonData => {
             abilityTraitsData = jsonData;
-            populateAbilityDropdown();
+            availableAbilities = abilityTraitsData.ability_traits.abilities.map(ability => ability.name);
+            updateAbilityDropdown();
         })
         .catch(error => {
             console.error('Error fetching Ability Traits data:', error);
         });
 });
 
-function populateAbilityDropdown() {
+function updateAbilityDropdown() {
     const abilityDropdown = document.getElementById('abilityDropdown');
+    const abilityTraitsColumns = document.querySelector('.ability-traits-columns');
+    if (!abilityDropdown) return;
 
-    // Check if the abilityDropdown element exists before populating it
-    if (abilityDropdown) {
-        abilityDropdown.innerHTML = '<option value="" selected>Select an Ability</option>';
-
-        if (abilityTraitsData && abilityTraitsData.ability_traits && abilityTraitsData.ability_traits.abilities) {
-            const abilities = abilityTraitsData.ability_traits.abilities;
-
-            // Sort the abilities alphabetically by name
-            abilities.sort((a, b) => a.name.localeCompare(b.name));
-
-            abilities.forEach(ability => {
-                const option = document.createElement('option');
-                option.value = ability.name;
-                option.textContent = ability.name;
-                abilityDropdown.appendChild(option);
-            });
+    abilityDropdown.innerHTML = '<option value="" selected>Select an Ability</option>';
+    availableAbilities.forEach(abilityName => {
+        // Check if the ability is already added to the tables
+        if (!isAbilityAdded(abilityTraitsColumns, abilityName)) {
+            const option = document.createElement('option');
+            option.value = abilityName;
+            option.textContent = abilityName;
+            abilityDropdown.appendChild(option);
         }
-    }
+    });
 }
 
-// Add an event listener to the ability dropdown within the abilityTraitsContainer
+function isAbilityAdded(abilityTraitsColumns, abilityName) {
+    if (!abilityTraitsColumns) {
+        return false;
+    }
+
+    // Check all h3 elements for the ability name
+    const existingAbilities = abilityTraitsColumns.querySelectorAll('h3');
+    for (let i = 0; i < existingAbilities.length; i++) {
+        if (existingAbilities[i].textContent === abilityName) {
+            return true;
+        }
+    }
+    return false;
+}
+
 document.addEventListener('change', function (event) {
     const abilityDropdown = document.getElementById('abilityDropdown');
     if (event.target === abilityDropdown) {
@@ -59,158 +68,135 @@ function loadColumns() {
         const selectedAbilityData = abilities.find(ability => ability.name === selectedAbility);
 
         if (selectedAbilityData) {
-            console.log('Selected Ability Data:', selectedAbilityData); // Debugging
+            console.log('Selected Ability Data:', selectedAbilityData);
 
-            // Check if the ability is already in the dropdown before removing it
             const selectedOption = abilityDropdown.querySelector(`option[value="${selectedAbility}"]`);
             if (selectedOption) {
                 selectedOption.remove();
             }
 
-            // Create a new row for the ability traits
             const row = document.createElement('div');
             row.className = 'ability-traits-row';
-
-            // Create a button to drop the ability
             const dropButton = document.createElement('button');
             dropButton.textContent = 'X';
             dropButton.className = 'drop-ability-button';
             dropButton.addEventListener('click', function () {
-                // Handle dropping the ability here
-                row.remove(); // Remove the row
-                // Re-add the ability to the dropdown and reorder it alphabetically
-                const option = document.createElement('option');
-                option.value = selectedAbility;
-                option.textContent = selectedAbility;
-                abilityDropdown.appendChild(option);
-                reorderDropdown(abilityDropdown);
+                row.remove();
+                availableAbilities.push(selectedAbility);
+                updateAbilityDropdown();
             });
-
-            // Add the drop button to the row
             row.appendChild(dropButton);
 
-            // Create a header for the Ability name
             const abilityHeader = document.createElement('h3');
             abilityHeader.textContent = selectedAbility;
-
-            // Create a table to display the traits
-            const table = document.createElement('table');
-            table.className = 'ability-traits-table';
-
-            // Create the table headers (I, II, III, IV, ..., X)
-            const headerRow = document.createElement('tr');
-            for (let i = 1; i <= 10; i++) {
-                const headerCell = document.createElement('th');
-                headerCell.textContent = romanize(i);
-                headerRow.appendChild(headerCell);
-            }
-            table.appendChild(headerRow);
-
-            // Create an array to store the columns for each level
-            const levelColumns = [];
-
-            // Iterate over the levels (I, II, III, IV, ...)
-            for (let i = 1; i <= 10; i++) {
-                const level = romanize(i);
-
-                // Create an array to store the buttons for this level
-                const levelButtons = [];
-
-                // Iterate over the trait names within this level
-                for (const traitName in selectedAbilityData[level]) {
-                    const traitDetails = selectedAbilityData[level][traitName];
-                    // Create a button for the ability trait
-                    const traitButton = document.createElement('button');
-
-                    // Add the "ability-trait-button" class to the button
-                    traitButton.classList.add('ability-trait-button');
-
-                    // Add the selected/selected-twice/selected-thrice logic here
-                    traitButton.addEventListener('click', function () {
-                        if (traitButton.classList.contains('selected')) {
-                            traitButton.classList.remove('selected');
-                            traitButton.classList.add('selected-twice');
-                        } else if (traitButton.classList.contains('selected-twice')) {
-                            traitButton.classList.remove('selected-twice');
-                            traitButton.classList.add('selected-thrice');
-                        } else if (traitButton.classList.contains('selected-thrice')) {
-                            traitButton.classList.remove('selected-thrice');
-                        } else {
-                            traitButton.classList.add('selected');
-                        }
-                        updateSummary();
-                    });
-
-                    const traitNameLine = document.createElement('div');
-                    traitNameLine.textContent = traitName;
-                    const traitPropertyLine = document.createElement('div');
-                    traitPropertyLine.textContent = Object.entries(traitDetails)
-                        .map(([key, value]) => `${key}: ${value}`)
-                        .join('\n');
-                    traitButton.appendChild(traitNameLine);
-                    traitButton.appendChild(traitPropertyLine);
-                    levelButtons.push(traitButton);
-                }
-
-                // Add this level's buttons to the levelColumns array
-                levelColumns.push(levelButtons);
-            }
-
-            // Create table rows from the columns
-            for (let i = 0; i < Math.max(...levelColumns.map(column => column.length)); i++) {
-                const levelRow = document.createElement('tr');
-                for (let j = 0; j < levelColumns.length; j++) {
-                    const levelCell = document.createElement('td');
-                    levelCell.classList.add('trait-cell');
-                    if (levelColumns[j][i]) {
-                        levelCell.appendChild(levelColumns[j][i]);
-                    }
-                    levelRow.appendChild(levelCell);
-                }
-                table.appendChild(levelRow);
-            }
-
-            // Add the header and table to the row
             row.appendChild(abilityHeader);
-            row.appendChild(table);
 
-            // Add the row to the abilityTraitsColumns
+            const table = createAbilityTraitsTable(selectedAbilityData);
+            row.appendChild(table);
             abilityTraitsColumns.appendChild(row);
+
+            const abilityIndex = availableAbilities.indexOf(selectedAbility);
+            if (abilityIndex > -1) {
+                availableAbilities.splice(abilityIndex, 1);
+                updateAbilityDropdown();
+            }
         } else {
-            console.log('Selected Ability Data not found.'); // Debugging
+            console.log('Selected Ability Data not found.');
         }
     } else {
-        console.log('Ability Traits Data not found.'); // Debugging
+        console.log('Ability Traits Data not found.');
     }
 }
 
-// Function to convert a number to a Roman numeral (1 to 10)
+function createAbilityTraitsTable(selectedAbilityData) {
+    const table = document.createElement('table');
+    table.className = 'ability-traits-table';
+
+    const headerRow = document.createElement('tr');
+    for (let i = 1; i <= 10; i++) {
+        const headerCell = document.createElement('th');
+        headerCell.textContent = romanize(i);
+        headerRow.appendChild(headerCell);
+    }
+    table.appendChild(headerRow);
+
+    const levelColumns = createLevelColumns(selectedAbilityData);
+    for (let i = 0; i < Math.max(...levelColumns.map(column => column.length)); i++) {
+        const levelRow = document.createElement('tr');
+        levelColumns.forEach(column => {
+            const levelCell = document.createElement('td');
+            levelCell.classList.add('trait-cell');
+            if (column[i]) {
+                levelCell.appendChild(column[i]);
+            }
+            levelRow.appendChild(levelCell);
+        });
+        table.appendChild(levelRow);
+    }
+
+    return table;
+}
+
+function createLevelColumns(selectedAbilityData) {
+    const levelColumns = [];
+    for (let i = 1; i <= 10; i++) {
+        const level = romanize(i);
+        const levelButtons = [];
+
+        for (const traitName in selectedAbilityData[level]) {
+            const traitDetails = selectedAbilityData[level][traitName];
+            const traitButton = document.createElement('button');
+            traitButton.className = 'button ability-trait-button';
+            traitButton.style.position = 'relative';
+            traitButton.innerHTML = `<strong>${traitName}</strong><br>` +
+                Object.entries(traitDetails)
+                    .map(([key, value]) => `${key}: ${value}`)
+                    .join('<br>');
+            setupTraitButtonListeners(traitButton, level);
+            levelButtons.push(traitButton);
+        }
+        levelColumns.push(levelButtons);
+    }
+    return levelColumns;
+}
+
+function setupTraitButtonListeners(traitButton, level) {
+    traitButton.addEventListener('click', function () {
+        toggleTraitButtonState(traitButton);
+        updateSummary();
+    });
+
+    traitButton.oncontextmenu = function(event) {
+        event.preventDefault();
+        toggleTraitButtonCheck(traitButton);
+    };
+
+    traitButton.setAttribute('data-level', level);
+}
+
+function toggleTraitButtonState(button) {
+    if (button.classList.contains('selected')) {
+        button.classList.remove('selected');
+        button.classList.add('selected-twice');
+    } else if (button.classList.contains('selected-twice')) {
+        button.classList.remove('selected-twice');
+        button.classList.add('selected-thrice');
+    } else if (button.classList.contains('selected-thrice')) {
+        button.classList.remove('selected-thrice');
+    } else {
+        button.classList.add('selected');
+    }
+}
+
+function toggleTraitButtonCheck(button) {
+    if (button.classList.contains('checked')) {
+        button.classList.remove('checked');
+    } else {
+        button.classList.add('checked');
+    }
+}
+
 function romanize(num) {
     const romanNumerals = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
     return romanNumerals[num - 1];
 }
-
-function reorderDropdown(dropdown) {
-    // Remove all options except the default "Select an Ability"
-    const options = Array.from(dropdown.options);
-    options.forEach(option => {
-        if (option.value !== "") {
-            option.remove();
-        }
-    });
-
-    // Get the remaining options and sort them alphabetically
-    const remainingOptions = options.map(option => option.value);
-    remainingOptions.sort((a, b) => a.localeCompare(b));
-
-    // Re-add the remaining options to the dropdown
-    remainingOptions.forEach(optionText => {
-        const option = document.createElement('option');
-        option.value = optionText;
-        option.textContent = optionText;
-        dropdown.appendChild(option);
-    });
-}
-
-// Initialize the ability dropdown when the page loads
-populateAbilityDropdown();

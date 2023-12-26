@@ -103,7 +103,7 @@ def main():
     file_path = "static/source.html"
     html = read_html_from_file(file_path)
     if html:
-        ability_name = "Spirit Warrior"  # Hardcoded for now
+        ability_name = "Hailstorm"  # Hardcoded for now
         json_data = html_to_json(html, ability_name)
         if json_data:
             update_json_file("static/data/h_o_t_traits.json", json_data)
