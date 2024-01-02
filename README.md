@@ -16,6 +16,26 @@ Installation instructions are below.
 - **Backend**: Built with Flask, handling routing and server-side logic.
 - **Frontend**: Interactive UI built with HTML, CSS, and JavaScript.
 
+## Easy to Start
+Now with an easy double click .exe file! 
+
+You can use the exe from this project or download it here:
+https://github.com/gizix/HoT_SkillTracker/blob/855dc645bc08540ab34a6c88483aeadb2124103b/dist/HoT_SkillTracker.exe
+
+Click `Download raw file`
+
+![img.png](app/static/images/readme_download_exe.png)
+
+Converted Flask server to use pywebview for a single file executable style program.
+File is located in the dist folder `dist/HoT_SkillTracker.exe`
+
+### To Build .exe Yourself
+From the project directory
+1. `pip install pyinstaller`
+2. Edit the sample.spec file line `pathex=['path\\to\\the\\project'],` to match your settings.
+3. `pyinstaller sample.spec`
+4. Run `dist/HoT_SkillTracker.exe`
+
 ## Installation with Poetry
 1. Clone the repository: `git clone https://github.com/gizix/HoT_SkillTracker.git`
 2. Install Poetry if not already installed: `pip install poetry`
