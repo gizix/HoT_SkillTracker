@@ -1,0 +1,158 @@
+{
+  "Electric Archer": {
+    "classTraits": {
+      "dropdown1": "Archer",
+      "dropdown2": "Sorceress",
+      "buttons": [
+        {
+          "traitName": "Quickdraw",
+          "traitType": "Weapon Proficiency",
+          "traitClass": "traitsPanel1",
+          "level": "I",
+          "status": "selected-thrice"
+        },
+        {
+          "traitName": "Pierce",
+          "traitType": "Weapon Proficiency",
+          "traitClass": "traitsPanel1",
+          "level": "IV",
+          "status": "selected"
+        },
+        {
+          "traitName": "Barrage",
+          "traitType": "Proficient Stance",
+          "traitClass": "traitsPanel1",
+          "level": "I",
+          "status": "selected-thrice"
+        },
+        {
+          "traitName": "Pinpoint",
+          "traitType": "Proficient Stance",
+          "traitClass": "traitsPanel1",
+          "level": "IV",
+          "status": "selected"
+        },
+        {
+          "traitName": "Agility",
+          "traitType": "Dedication",
+          "traitClass": "traitsPanel1",
+          "level": "I",
+          "status": "selected-thrice"
+        },
+        {
+          "traitName": "Regeneration",
+          "traitType": "Dedication",
+          "traitClass": "traitsPanel1",
+          "level": "I",
+          "status": "selected-thrice"
+        },
+        {
+          "traitName": "Strength",
+          "traitType": "Weapon Proficiency",
+          "traitClass": "traitsPanel2",
+          "level": "I",
+          "status": "selected-thrice"
+        },
+        {
+          "traitName": "Voltage",
+          "traitType": "Weapon Proficiency",
+          "traitClass": "traitsPanel2",
+          "level": "I",
+          "status": "selected"
+        },
+        {
+          "traitName": "Voltage",
+          "traitType": "Weapon Proficiency",
+          "traitClass": "traitsPanel2",
+          "level": "II",
+          "status": "selected"
+        },
+        {
+          "traitName": "Voltage",
+          "traitType": "Weapon Proficiency",
+          "traitClass": "traitsPanel2",
+          "level": "III",
+          "status": "selected"
+        },
+        {
+          "traitName": "Voltage",
+          "traitType": "Weapon Proficiency",
+          "traitClass": "traitsPanel2",
+          "level": "IV",
+          "status": "selected-twice"
+        },
+        {
+          "traitName": "Stability",
+          "traitType": "Proficient Stance",
+          "traitClass": "traitsPanel2",
+          "level": "I",
+          "status": "selected"
+        },
+        {
+          "traitName": "Strikes",
+          "traitType": "Proficient Stance",
+          "traitClass": "traitsPanel2",
+          "level": "I",
+          "status": "selected-thrice"
+        },
+        {
+          "traitName": "Stability",
+          "traitType": "Proficient Stance",
+          "traitClass": "traitsPanel2",
+          "level": "II",
+          "status": "selected"
+        },
+        {
+          "traitName": "Stability",
+          "traitType": "Proficient Stance",
+          "traitClass": "traitsPanel2",
+          "level": "III",
+          "status": "selected"
+        },
+        {
+          "traitName": "Stability",
+          "traitType": "Proficient Stance",
+          "traitClass": "traitsPanel2",
+          "level": "IV",
+          "status": "selected"
+        },
+        {
+          "traitName": "Nimble",
+          "traitType": "Dedication",
+          "traitClass": "traitsPanel2",
+          "level": "I",
+          "status": "selected"
+        },
+        {
+          "traitName": "Protection",
+          "traitType": "Dedication",
+          "traitClass": "traitsPanel2",
+          "level": "I",
+          "status": "selected-thrice"
+        },
+        {
+          "traitName": "Nimble",
+          "traitType": "Dedication",
+          "traitClass": "traitsPanel2",
+          "level": "II",
+          "status": "selected"
+        },
+        {
+          "traitName": "Nimble",
+          "traitType": "Dedication",
+          "traitClass": "traitsPanel2",
+          "level": "III",
+          "status": "selected"
+        },
+        {
+          "traitName": "Nimble",
+          "traitType": "Dedication",
+          "traitClass": "traitsPanel2",
+          "level": "IV",
+          "status": "selected"
+        }
+      ]
+    },
+    "abilityTraitsHTML": "\n\n\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Ability Traits Comparer</title>\n    <link rel=\"stylesheet\" href=\"/static/css/style.css\">\n    <script src=\"/static/js/ability_traits.js\"></script>\n\n\n    <div class=\"container\">\n        <div class=\"ability-traits-columns\">\n            <!-- Columns for Ability Traits will be dynamically loaded here -->\n        </div>\n    </div>\n\n"
+  }
+}

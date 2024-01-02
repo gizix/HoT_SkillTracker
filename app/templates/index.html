@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trait Comparer</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     <script src="{{ url_for('static', filename='js/ability_traits.js') }}"></script>
 </head>
@@ -26,6 +27,7 @@
     <div class="container">
         <button onclick="showSaveMenu()">Save Build</button>
         <button onclick="loadState()">Load Build</button>
+        <button id="clearTraitsButton" onclick="clearAllTraits()">Clear Build</button>
         <button id="switchToAbilityTraits">Switch to Ability Traits</button>
         <div id="selectionContainer">
             <select id="classDropdown1"></select>

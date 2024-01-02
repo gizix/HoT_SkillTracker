@@ -257,39 +257,13 @@ window.onload = function() {
 };
 
 async function applyState(state) {
-    console.log('Applying State:', state);
-    // Set dropdown values
-    document.getElementById('classDropdown1').value = state.dropdown1;
-    document.getElementById('classDropdown2').value = state.dropdown2;
+     console.log('Applying State:', state);
 
-    // Trigger compareTraits function
-    compareTraits();
-
-    // Wait for a longer duration to ensure traits are displayed
-    await new Promise(resolve => setTimeout(resolve, 100));
-
-    // Reset all buttons
-    document.querySelectorAll('button.selected, button.selected-twice, button.selected-thrice').forEach(btn => {
-        btn.classList.remove('selected', 'selected-twice', 'selected-thrice');
-    });
-
-    // Set button states
-    state.buttons.forEach(item => {
-        const traitTypeDivs = document.querySelectorAll(`#${item.traitClass} .trait-type`);
-        let matchingDiv;
-        traitTypeDivs.forEach(div => {
-            if (div.querySelector('h3').innerText === item.traitType) {
-                matchingDiv = div;
-            }
-        });
-
-        if (matchingDiv) {
-            const btn = Array.from(matchingDiv.querySelectorAll(`button[data-level="${item.level}"]`)).find(button => button.innerText.split('\n')[0] === item.traitName);
-            if (btn) {
-                btn.classList.add(item.status);
-            }
-        }
-    });
+    // Apply class traits state
+    if (state.classTraits) {
+        console.log('Applying class traits state...')
+        await applyClassTraitsState(state.classTraits);
+    }
 
     // Restore ability traits HTML
     if (state.abilityTraitsHTML) {
@@ -305,25 +279,71 @@ async function applyState(state) {
     updateSummary();
 }
 
+// Helper function to apply the state of class traits
+async function applyClassTraitsState(classTraitsState) {
+    document.getElementById('classDropdown1').value = classTraitsState.dropdown1;
+    document.getElementById('classDropdown2').value = classTraitsState.dropdown2;
+
+    compareTraits();  // Assuming this function sets up the class traits based on dropdown values
+
+    await new Promise(resolve => setTimeout(resolve, 100));
+
+    // Reset and set button states
+    document.querySelectorAll('button.selected, button.selected-twice, button.selected-thrice').forEach(btn => {
+        btn.classList.remove('selected', 'selected-twice', 'selected-thrice');
+    });
+
+    classTraitsState.buttons.forEach(item => {
+        const traitTypeDivs = document.querySelectorAll(`#${item.traitClass} .trait-type`);
+        let matchingDiv;
+        traitTypeDivs.forEach(div => {
+            if (div.querySelector('h3').innerText === item.traitType) {
+                matchingDiv = div;
+            }
+        });
+
+        if (matchingDiv) {
+            const btn = Array.from(matchingDiv.querySelectorAll(`button[data-level="${item.level}"]`)).find(button => button.innerText.split('\n')[0] === item.traitName);
+            if (btn) {
+                btn.classList.add(item.status);
+            }
+        }
+    });
+}
+
 function showSaveMenu() {
-    const savedStates = JSON.parse(localStorage.getItem('savedStates') || '{}');
-    const stateNames = Object.keys(savedStates);
+    fetch('/load_states')
+    .then(response => response.json())
+    .then(data => {
+        populateSaveStateList(data);
+    })
+    .catch(error => {
+        console.error('Error loading states:', error);
+    });
+}
+
+function populateSaveStateList(states) {
     const saveStateList = document.getElementById('saveStateList');
     saveStateList.innerHTML = ''; // Clear previous list
 
-    stateNames.forEach(name => {
+    Object.keys(states).forEach(stateName => {
         const li = document.createElement('li');
-        li.textContent = name;
+        li.textContent = stateName;
         li.onclick = function() {
             const confirmation = confirm("Are you sure you want to overwrite this state?");
             if (confirmation) {
-                saveState(name); // Overwrite the existing state
+                saveState(stateName); // Overwrite the existing state
+                closeModal('saveStateModal'); // Close the modal after saving
             }
         };
         saveStateList.appendChild(li);
     });
 
     document.getElementById('saveStateModal').style.display = 'block'; // Show the modal
+}
+
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = 'none';
 }
 
 function saveState(stateName = null) {
@@ -342,46 +362,99 @@ function saveState(stateName = null) {
         return { traitName, traitType, traitClass, level, status };
     });
 
+    // Capture both class traits and ability traits
     const state = {
-        dropdown1: document.getElementById('classDropdown1').value,
-        dropdown2: document.getElementById('classDropdown2').value,
-        buttons: buttons,
+        classTraits: {
+            dropdown1: document.getElementById('classDropdown1').value,
+            dropdown2: document.getElementById('classDropdown2').value,
+            buttons: captureClassTraitsButtonsState()
+        },
         abilityTraitsHTML: savedAbilityTraitsHTML
     };
 
-    console.log('Saving State:', state);
+    console.log('Attempting to save state:', stateName, state);  // Log the state being saved
 
-    // Save to local storage
-    const savedStates = JSON.parse(localStorage.getItem('savedStates') || '{}');
-    savedStates[stateName] = state;
-    localStorage.setItem('savedStates', JSON.stringify(savedStates));
-
-    // Close the save modal
-    document.getElementById('saveStateModal').style.display = 'none';
+    // Save all states to server
+    fetch('/save_states', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ [stateName]: state })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            console.log('State saved successfully');
+        } else {
+            console.error('Failed to save state:', data.error);
+        }
+    })
+    .catch(error => {
+        console.error('Error saving state:', error);
+    });
 }
 
-async function loadState() {
-    const savedStates = JSON.parse(localStorage.getItem('savedStates') || '{}');
-    const stateNames = Object.keys(savedStates);
-    const stateList = document.getElementById('stateList');
-    stateList.innerHTML = ''; // Clear previous list
-
-    if (stateNames.length === 0) {
-        alert("No saved states found!");
-        return;
-    }
-
-    stateNames.forEach(name => {
-        const li = document.createElement('li');
-        li.textContent = name;
-        li.onclick = function() {
-            applyState(savedStates[name]);
-            document.getElementById('loadStateModal').style.display = 'none'; // Close the modal
+// Helper function to capture the state of class traits buttons
+function captureClassTraitsButtonsState() {
+    const selectedButtons = document.querySelectorAll('button.selected, button.selected-twice, button.selected-thrice');
+    return Array.from(selectedButtons).map(btn => {
+        return {
+            traitName: btn.innerText.split('\n')[0],
+            traitType: btn.getAttribute('data-type'),
+            traitClass: btn.closest('.trait-type')?.parentNode?.id || 'unknown',
+            level: btn.getAttribute('data-level'),
+            status: btn.classList.contains('selected-twice') ? 'selected-twice' : btn.classList.contains('selected-thrice') ? 'selected-thrice' : 'selected'
         };
-        stateList.appendChild(li);
+    });
+}
+
+function loadState() {
+    console.log('Attempting to load states');
+
+    fetch('/load_states')
+    .then(response => response.json())
+    .then(data => {
+        if (!data || Object.keys(data).length === 0) {
+            console.log('No states found, loading empty state list');
+            populateStateList({});
+        } else {
+            console.log('States loaded successfully:', data);
+            populateStateList(data);
+        }
+    })
+    .catch(error => {
+        console.error('Error loading states:', error);
+    });
+}
+
+function populateStateList(states) {
+    const loadStateList = document.getElementById('stateList');
+    const saveStateList = document.getElementById('saveStateList');
+    loadStateList.innerHTML = '';
+    saveStateList.innerHTML = '';
+
+    Object.keys(states).forEach(stateName => {
+        const loadLi = document.createElement('li');
+        loadLi.textContent = stateName;
+        loadLi.onclick = function() {
+            applyState(states[stateName]);
+            document.getElementById('loadStateModal').style.display = 'none';
+        };
+        loadStateList.appendChild(loadLi);
+
+        const saveLi = document.createElement('li');
+        saveLi.textContent = stateName;
+        saveLi.onclick = function() {
+            const confirmation = confirm("Are you sure you want to overwrite this state?");
+            if (confirmation) {
+                saveState(stateName);
+            }
+        };
+        saveStateList.appendChild(saveLi);
     });
 
-    document.getElementById('loadStateModal').style.display = 'block'; // Show the modal
+    document.getElementById('loadStateModal').style.display = 'block';
 }
 
 function showSummaryModal() {
@@ -463,4 +536,27 @@ function reorderDropdown(dropdown) {
     options.sort((a, b) => a.textContent.localeCompare(b.textContent));
 
     options.forEach(option => dropdown.appendChild(option));
+}
+
+function clearClassTraits() {
+    // Logic to clear class traits
+    const classTraitButtons = document.querySelectorAll('#traitsPanel1 button, #traitsPanel2 button');
+    classTraitButtons.forEach(button => {
+        button.classList.remove('selected', 'selected-twice', 'selected-thrice', 'checked');
+    });
+}
+
+function clearAbilityTraits() {
+    // Logic to clear ability traits
+    const abilityTraitButtons = document.querySelectorAll('#abilityTraitsContainer button');
+    abilityTraitButtons.forEach(button => {
+        button.classList.remove('selected', 'selected-twice', 'selected-thrice', 'checked');
+    });
+}
+
+function clearAllTraits() {
+    clearClassTraits();
+    clearAbilityTraits();
+    updateSummary();
+    // Additional logic if needed for clearing the current build
 }
